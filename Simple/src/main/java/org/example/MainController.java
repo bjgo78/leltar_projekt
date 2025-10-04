@@ -51,6 +51,17 @@ public class MainController {
         loginStage.setScene(scene);
         loginStage.showAndWait();
     }
+    @FXML
+    private TextField computerField;
+
+    @FXML
+    private TextField deviceField;
+
+    @FXML
+    private TextField nameField;
+
+    @FXML
+    private Button searchButton;
 
 
 
