@@ -7,4 +7,7 @@ public class MainController {
     private void initialize() {
 
     }
+    @FXML
+    private Button LoginButton;
+
 }
