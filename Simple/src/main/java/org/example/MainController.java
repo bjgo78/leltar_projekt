@@ -3,6 +3,7 @@ package org.example;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -48,6 +49,12 @@ public class MainController {
         layout.setStyle("-fx-padding: 20; -fx-alignment: center;");
 
         Scene scene = new Scene(layout, 300, 200);
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                loginButton.fire();
+            }
+        });
+
         loginStage.setScene(scene);
         loginStage.showAndWait();
     }
