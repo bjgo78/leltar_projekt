@@ -10,6 +10,7 @@ public class SQLTest {
     String password = "leltar";
     public String search(String name, String jobTitle){
         String query;
+        StringBuilder result = new StringBuilder();
         if (name.isEmpty() && jobTitle.isEmpty()){
             query = "SELECT userid, name, job_title FROM employee";
         } else if (name.isEmpty() && !jobTitle.isEmpty()) {
@@ -29,12 +30,12 @@ public class SQLTest {
                 int resid = rs.getInt("userid");
                 String resname = rs.getString("name");
                 String resjobTitle = rs.getString("job_title");
-                System.out.printf("%d;%s;%s\n", resid, resname, resjobTitle);
+                result.append(String.format("%d;%s;%s\n", resid, resname, resjobTitle));
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return result.toString();
     }
 }
