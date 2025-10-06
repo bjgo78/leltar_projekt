@@ -9,7 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainController {
-    SQLTest sqlTest;
+    SQLTest sqlTest = new SQLTest();
 
     @FXML
     private void initialize() {
