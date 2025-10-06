@@ -18,11 +18,9 @@
                      <children>
                         <Label layoutX="31.0" layoutY="22.0" prefHeight="38.0" prefWidth="109.0" text="Név" />
                         <TextField fx:id="nameField" layoutX="31.0" layoutY="60.0" />
-                        <TextField fx:id="computerField" layoutX="202.0" layoutY="60.0" />
-                        <TextField fx:id="deviceField" layoutX="371.0" layoutY="60.0" />
-                        <Label layoutX="202.0" layoutY="33.0" text="Számitógép" />
-                        <Label layoutX="371.0" layoutY="33.0" text="Periféria" />
-                        <Button fx:id="searchButton" layoutX="549.0" layoutY="60.0" mnemonicParsing="false" text="Keresés" />
+                        <TextField fx:id="jobTitleField" layoutX="202.0" layoutY="60.0" />
+                        <Label layoutX="202.0" layoutY="33.0" text="Munkakör" />
+                        <Button layoutX="549.0" layoutY="60.0" mnemonicParsing="false" onAction="#searchButton" text="Keresés" />
                         <ScrollPane layoutX="31.0" layoutY="132.0" prefHeight="287.0" prefWidth="493.0">
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="288.0" prefWidth="492.0" />

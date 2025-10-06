@@ -5,13 +5,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class SQLTest {
-    public static void main(String[] args) {
-        String url = "jdbc:mariadb://localhost:3306/leltar";
-        String user = "leltar";
-        String password = "leltar";
-
-        String query = "SELECT userid, name, job_title FROM employee";
-
+    String url = "jdbc:mariadb://localhost:3306/leltar";
+    String user = "leltar";
+    String password = "leltar";
+    public String search(String name, String jobTitle){
+        String query;
+        if (name.isEmpty() && jobTitle.isEmpty()){
+            query = "SELECT userid, name, job_title FROM employee";
+        } else if (name.isEmpty() && !jobTitle.isEmpty()) {
+            query = "SELECT userid, name, job_title FROM employee WHERE job_title LIKE '%"+jobTitle+"%'";
+        } else if (!name.isEmpty() && jobTitle.isEmpty()) {
+            query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%'";
+        } else {
+            query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and job_title LIKE '%"+jobTitle+"%'";
+        }
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
@@ -19,14 +26,15 @@ public class SQLTest {
             System.out.println("Connected to MariaDB successfully!\n");
 
             while (rs.next()) {
-                int id = rs.getInt("userid");
-                String name = rs.getString("name");
-                String jobTitle = rs.getString("job_title");
-                System.out.printf("ID: %d | Name: %s | Job: %s%n", id, name, jobTitle);
+                int resid = rs.getInt("userid");
+                String resname = rs.getString("name");
+                String resjobTitle = rs.getString("job_title");
+                System.out.printf("%d;%s;%s\n", resid, resname, resjobTitle);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 }

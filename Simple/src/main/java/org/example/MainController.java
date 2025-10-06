@@ -9,6 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainController {
+    SQLTest sqlTest;
 
     @FXML
     private void initialize() {
@@ -58,18 +59,18 @@ public class MainController {
         loginStage.setScene(scene);
         loginStage.showAndWait();
     }
-    @FXML
-    private TextField computerField;
 
     @FXML
-    private TextField deviceField;
+    private TextField jobTitleField;
 
     @FXML
     private TextField nameField;
 
     @FXML
-    private Button searchButton;
-
+    void searchButton() {
+        //System.out.println(String.format("Name: %s\nJobID: %s", nameField.getText(), jobTitleField.getText()));
+        sqlTest.search(nameField.getText(), jobTitleField.getText());
+    }
 
 
 }
