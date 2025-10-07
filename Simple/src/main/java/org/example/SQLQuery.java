@@ -8,17 +8,29 @@ public class SQLQuery {
     String url = "jdbc:mariadb://localhost:3306/leltar";
     String user = "leltar";
     String password = "leltar";
-    public String searchEmployee(String name, String jobTitle){
+    public String searchEmployee(String userId, String name, String jobTitle){
         String query;
         StringBuilder result = new StringBuilder();
-        if (name.isEmpty() && jobTitle.isEmpty()){
+        if (name.isEmpty() && jobTitle.isEmpty() && userId.isEmpty()){
             query = "SELECT userid, name, job_title FROM employee";
         } else if (name.isEmpty() && !jobTitle.isEmpty()) {
-            query = "SELECT userid, name, job_title FROM employee WHERE job_title LIKE '%"+jobTitle+"%'";
+            if (userId.isEmpty()){
+                query = "SELECT userid, name, job_title FROM employee WHERE job_title LIKE '%"+jobTitle+"%'";
+            } else {
+                query = "SELECT userid, name, job_title FROM employee WHERE job_title LIKE '%"+jobTitle+"%' and userid LIKE '%"+userId+"%'";
+            }
         } else if (!name.isEmpty() && jobTitle.isEmpty()) {
-            query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%'";
-        } else {
+            if (userId.isEmpty()){
+                query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%'";
+            } else {
+                query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and userid LIKE '%"+userId+"%'";
+            }
+        } else if (name.isEmpty() && jobTitle.isEmpty() && !userId.isEmpty()) {
+            query = "SELECT userid, name, job_title FROM employee WHERE userid LIKE '%"+userId+"%'";
+        } else if (!name.isEmpty() && !jobTitle.isEmpty() && userId.isEmpty()) {
             query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and job_title LIKE '%"+jobTitle+"%'";
+        } else {
+            query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and job_title LIKE '%"+jobTitle+"%' and userid LIKE '%"+userId+"%'";
         }
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement(query);

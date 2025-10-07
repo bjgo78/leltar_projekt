@@ -72,7 +72,7 @@ public class MainController {
     @FXML
     void employeeSearchButton() {
         //System.out.println(String.format("Name: %s\nJobID: %s", nameField.getText(), jobTitleField.getText()));
-        System.out.println(sqlQuery.searchEmployee(nameField.getText(), jobTitleField.getText()));
+        System.out.println(sqlQuery.searchEmployee(idField.getText(), nameField.getText(), jobTitleField.getText()));
     }
     @FXML
     void employeeAddButton() {
