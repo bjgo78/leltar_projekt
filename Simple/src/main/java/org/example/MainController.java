@@ -9,7 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainController {
-    SQLTest sqlTest = new SQLTest();
+    SQLQuery sqlQuery = new SQLQuery();
 
     @FXML
     private void initialize() {
@@ -69,7 +69,7 @@ public class MainController {
     @FXML
     void searchButton() {
         //System.out.println(String.format("Name: %s\nJobID: %s", nameField.getText(), jobTitleField.getText()));
-        System.out.println(sqlTest.search(nameField.getText(), jobTitleField.getText()));
+        System.out.println(sqlQuery.searchEmployee(nameField.getText(), jobTitleField.getText()));
     }
 
 

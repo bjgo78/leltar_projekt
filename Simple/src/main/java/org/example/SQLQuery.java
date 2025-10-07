@@ -4,11 +4,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class SQLTest {
+public class SQLQuery {
     String url = "jdbc:mariadb://localhost:3306/leltar";
     String user = "leltar";
     String password = "leltar";
-    public String search(String name, String jobTitle){
+    public String searchEmployee(String name, String jobTitle){
         String query;
         StringBuilder result = new StringBuilder();
         if (name.isEmpty() && jobTitle.isEmpty()){
