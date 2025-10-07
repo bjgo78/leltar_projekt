@@ -70,6 +70,23 @@ public class MainController {
     private TextField idField;
 
     @FXML
+    private TextField brandfield;
+
+    @FXML
+    private TextField ownerfield;
+
+    @FXML
+    private TextField pcIDfield;
+
+    @FXML
+    private TextField versionfield;
+
+    @FXML
+    void PeripherialSearchButton() {
+
+    }
+
+    @FXML
     void employeeSearchButton() {
         //System.out.println(String.format("Name: %s\nJobID: %s", nameField.getText(), jobTitleField.getText()));
         System.out.println(sqlQuery.searchEmployee(idField.getText(), nameField.getText(), jobTitleField.getText()));
