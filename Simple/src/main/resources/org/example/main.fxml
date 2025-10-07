@@ -45,6 +45,7 @@
                         <TextField fx:id="brandfield" layoutX="164.0" layoutY="37.0" prefHeight="25.0" prefWidth="132.0" />
                         <TextField fx:id="versionfield" layoutX="328.0" layoutY="37.0" prefHeight="25.0" prefWidth="130.0" />
                         <TextField fx:id="ownerfield" layoutX="490.0" layoutY="37.0" prefHeight="25.0" prefWidth="125.0" />
+                        <Button layoutX="650.0" layoutY="37.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" text="Keresés" />
                      </children></AnchorPane>
             </content>
           </Tab>
