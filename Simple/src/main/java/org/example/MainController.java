@@ -50,6 +50,9 @@ public class MainController {
         layout.setStyle("-fx-padding: 20; -fx-alignment: center;");
 
         Scene scene = new Scene(layout, 300, 200);
+
+        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 loginButton.fire();
