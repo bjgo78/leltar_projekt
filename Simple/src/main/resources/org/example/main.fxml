@@ -37,10 +37,14 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="35.0" layoutY="28.0" text="PC_ID" />
-                        <Label layoutX="140.0" layoutY="28.0" text="Márka" />
-                        <Label layoutX="244.0" layoutY="28.0" text="Verzió" />
-                        <Label layoutX="336.0" layoutY="28.0" text="Tulajdonos" />
+                        <Label layoutX="25.0" layoutY="14.0" text="PC_ID" />
+                        <Label layoutX="164.0" layoutY="14.0" text="Márka" />
+                        <Label layoutX="328.0" layoutY="14.0" text="Verzió" />
+                        <Label layoutX="490.0" layoutY="14.0" text="Tulajdonos" />
+                        <TextField fx:id="pcIDfield" layoutX="25.0" layoutY="37.0" prefHeight="25.0" prefWidth="117.0" />
+                        <TextField fx:id="brandfield" layoutX="164.0" layoutY="37.0" prefHeight="25.0" prefWidth="132.0" />
+                        <TextField fx:id="versionfield" layoutX="328.0" layoutY="37.0" prefHeight="25.0" prefWidth="130.0" />
+                        <TextField fx:id="ownerfield" layoutX="490.0" layoutY="37.0" prefHeight="25.0" prefWidth="125.0" />
                      </children></AnchorPane>
             </content>
           </Tab>
