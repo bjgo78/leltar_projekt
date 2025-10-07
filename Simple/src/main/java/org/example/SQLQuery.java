@@ -65,30 +65,8 @@ public class SQLQuery {
 
     }
     public String searchPc(String pcId, String brand, String version, String owner){
-        // Select pc.pcid, pc.brand, pc.version, employee.name from pc inner join employee on pc.userid = employee.userid;
-        String query = "";
+        String query = "SELECT pc.pcid, pc.brand, pc.version, employee.name FROM pc INNER JOIN employee ON pc.userid = employee.userid WHERE pc.pcid LIKE '%"+pcId+"%' AND pc.brand LIKE '%"+brand+"%' AND pc.version LIKE '%"+version+"%' AND employee.name LIKE '%"+owner+"%'";
         StringBuilder result = new StringBuilder();
-        /*if (pcId.isEmpty() && brand.isEmpty() && version.isEmpty() && owner.isEmpty()){
-            query = "Select pc.pcid, pc.brand, pc.version, employee.name from pc inner join employee on pc.userid = employee.userid";
-        } else if (name.isEmpty() && !jobTitle.isEmpty()) {
-            if (userId.isEmpty()){
-                query = "SELECT userid, name, job_title FROM employee WHERE job_title LIKE '%"+jobTitle+"%'";
-            } else {
-                query = "SELECT userid, name, job_title FROM employee WHERE job_title LIKE '%"+jobTitle+"%' and userid LIKE '%"+userId+"%'";
-            }
-        } else if (!name.isEmpty() && jobTitle.isEmpty()) {
-            if (userId.isEmpty()){
-                query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%'";
-            } else {
-                query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and userid LIKE '%"+userId+"%'";
-            }
-        } else if (name.isEmpty() && jobTitle.isEmpty() && !userId.isEmpty()) {
-            query = "SELECT userid, name, job_title FROM employee WHERE userid LIKE '%"+userId+"%'";
-        } else if (!name.isEmpty() && !jobTitle.isEmpty() && userId.isEmpty()) {
-            query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and job_title LIKE '%"+jobTitle+"%'";
-        } else {
-            query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and job_title LIKE '%"+jobTitle+"%' and userid LIKE '%"+userId+"%'";
-        }*/
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
