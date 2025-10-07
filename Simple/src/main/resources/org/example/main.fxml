@@ -8,24 +8,27 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainController">
    <children>
-      <TabPane prefHeight="480.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane prefHeight="480.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
           <Tab text="Kereső">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="31.0" layoutY="22.0" prefHeight="38.0" prefWidth="109.0" text="Név" />
-                        <TextField fx:id="nameField" layoutX="31.0" layoutY="60.0" />
-                        <TextField fx:id="jobTitleField" layoutX="202.0" layoutY="60.0" />
-                        <Label layoutX="202.0" layoutY="33.0" text="Munkakör" />
-                        <Button layoutX="549.0" layoutY="60.0" mnemonicParsing="false" onAction="#searchButton" text="Keresés" />
+                        <Label layoutX="181.0" layoutY="29.0" prefHeight="38.0" prefWidth="109.0" text="Név" />
+                        <TextField fx:id="nameField" layoutX="181.0" layoutY="67.0" />
+                        <TextField fx:id="jobTitleField" layoutX="352.0" layoutY="67.0" />
+                        <Label layoutX="352.0" layoutY="40.0" text="Munkakör" />
+                        <Button layoutX="609.0" layoutY="60.0" mnemonicParsing="false" onAction="#employeeSearchButton" text="Keresés" />
                         <ScrollPane layoutX="31.0" layoutY="132.0" prefHeight="287.0" prefWidth="493.0">
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="288.0" prefWidth="492.0" />
                           </content>
                         </ScrollPane>
+                        <Button layoutX="574.0" layoutY="120.0" mnemonicParsing="false" onAction="#employeeAddButton" text="Dolgozó Hozzáadása" />
+                        <TextField fx:id="idField" layoutX="20.0" layoutY="67.0" />
+                        <Label layoutX="20.0" layoutY="29.0" prefHeight="38.0" prefWidth="109.0" text="ID" />
                      </children>
                   </AnchorPane>
             </content>

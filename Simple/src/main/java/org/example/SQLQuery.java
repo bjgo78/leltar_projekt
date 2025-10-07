@@ -38,4 +38,18 @@ public class SQLQuery {
         }
         return result.toString();
     }
+    public void addEmployee(String name, String jobTitle){
+        String query =  "INSERT INTO employee (name, job_title) VALUES ('"+ name +"', '"+ jobTitle +"')";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            System.out.println("Connected to MariaDB successfully!\n");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }
