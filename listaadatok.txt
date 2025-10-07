@@ -72,3 +72,80 @@ peripheral
 (23, 'Lenovo', 'Legion H300 Headset', 17),
 (24, 'Asus', 'TUF Gaming Mouse', 18),
 (25, 'Acer', 'B7 Series Monitor', 5);
+
+
+
+SQL:
+-- employee tábla
+INSERT INTO employee (userid, name, job_title) VALUES
+(1, 'Kovács Péter', 'Rendszergazda'),
+(2, 'Nagy Anna', 'Fejlesztő'),
+(3, 'Szabó Gábor', 'Projektmenedzser'),
+(4, 'Tóth Mária', 'Tesztelő'),
+(5, 'Horváth Dániel', 'Adatbázis adminisztrátor'),
+(6, 'Varga László', 'Fejlesztő'),
+(7, 'Kiss Eszter', 'HR munkatárs'),
+(8, 'Balogh Bence', 'Fejlesztő'),
+(9, 'Molnár Réka', 'UI/UX designer'),
+(10, 'Farkas István', 'Hálózati mérnök'),
+(11, 'Papp Zoltán', 'Fejlesztő'),
+(12, 'Takács Katalin', 'Marketinges'),
+(13, 'Jakab Krisztián', 'Rendszergazda'),
+(14, 'Mészáros Judit', 'Projektkoordinátor'),
+(15, 'Fekete Levente', 'Fejlesztő'),
+(16, 'Török Csilla', 'Tesztelő'),
+(17, 'Németh Tamás', 'Biztonsági szakértő'),
+(18, 'Simon Ádám', 'Fejlesztő'),
+(19, 'Fülöp Ágnes', 'Termékmenedzser'),
+(20, 'Lukács Gergő', 'Support munkatárs');
+
+-- pc tábla
+INSERT INTO pc (pcid, brand, version, userid) VALUES
+(1, 'Dell', 'OptiPlex 7090', 1),
+(2, 'HP', 'EliteDesk 800', 2),
+(3, 'Lenovo', 'ThinkCentre M90', 3),
+(4, 'Asus', 'ProArt Station PD5', 4),
+(5, 'Acer', 'Veriton X', 5),
+(6, 'Dell', 'Latitude 5520', 6),
+(7, 'HP', 'ProBook 450', 7),
+(8, 'Lenovo', 'IdeaPad 5', 8),
+(9, 'MSI', 'Modern 14', 9),
+(10, 'Apple', 'Mac Mini M2', 10),
+(11, 'Dell', 'XPS 13', 11),
+(12, 'HP', 'Pavilion 15', 12),
+(13, 'Lenovo', 'Yoga 7', 13),
+(14, 'Acer', 'Aspire 5', 14),
+(15, 'Asus', 'ZenBook 14', 15),
+(16, 'HP', 'ZBook Studio', 16),
+(17, 'Lenovo', 'Legion T5', 17),
+(18, 'MSI', 'Summit E16', 18),
+(19, 'Apple', 'MacBook Pro 16', 19),
+(20, 'Dell', 'Precision 5570', 20);
+
+-- peripheral tábla
+INSERT INTO peripheral (peripheralid, brand, version, pcid) VALUES
+(1, 'Logitech', 'MX Keys', 1),
+(2, 'Dell', 'U2422H Monitor', 1),
+(3, 'HP', 'LaserJet 107w', 2),
+(4, 'Lenovo', 'ThinkVision T24i', 3),
+(5, 'Asus', 'ProArt Display PA278CV', 4),
+(6, 'Acer', 'KM501 vezeték nélküli szett', 5),
+(7, 'Logitech', 'M185 Egér', 6),
+(8, 'HP', 'Docking Station G5', 7),
+(9, 'Lenovo', 'ThinkPad USB Keyboard', 8),
+(10, 'MSI', 'G2412 Monitor', 9),
+(11, 'Apple', 'Magic Mouse', 10),
+(12, 'Dell', 'P2423D Monitor', 11),
+(13, 'HP', 'DeskJet 2720e', 12),
+(14, 'Lenovo', 'ThinkVision T27h', 13),
+(15, 'Asus', 'ROG Gladius III', 14),
+(16, 'Acer', 'Vero BR277', 15),
+(17, 'HP', 'HD 720p Webkamera', 16),
+(18, 'MSI', 'GK701 Billentyűzet', 17),
+(19, 'Apple', 'Magic Keyboard', 19),
+(20, 'Dell', 'U2723QE Monitor', 20),
+(21, 'Logitech', 'Z333 Hangszóró', 2),
+(22, 'HP', 'Wireless Mouse 200', 3),
+(23, 'Lenovo', 'Legion H300 Headset', 17),
+(24, 'Asus', 'TUF Gaming Mouse', 18),
+(25, 'Acer', 'B7 Series Monitor', 5);
