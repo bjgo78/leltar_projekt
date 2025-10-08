@@ -7,28 +7,44 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainController">
    <children>
-      <TabPane prefHeight="480.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane prefHeight="480.0" prefWidth="694.0" style="-fx-background-color: lightblue;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab text="Kereső">
+          <Tab style="-fx-text-fill: #ffffff;" text="Kereső">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="181.0" layoutY="29.0" prefHeight="38.0" prefWidth="109.0" text="Név" />
+                        <Label layoutX="181.0" layoutY="29.0" prefHeight="38.0" prefWidth="109.0" text="Név" textFill="#5a5a5a">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font></Label>
                         <TextField fx:id="nameField" layoutX="181.0" layoutY="67.0" />
                         <TextField fx:id="jobTitleField" layoutX="352.0" layoutY="67.0" />
-                        <Label layoutX="352.0" layoutY="40.0" text="Munkakör" />
-                        <Button layoutX="609.0" layoutY="60.0" mnemonicParsing="false" onAction="#employeeSearchButton" text="Keresés" />
+                        <Label layoutX="352.0" layoutY="40.0" text="Munkakör" textFill="#5a5a5a">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font></Label>
+                        <Button layoutX="609.0" layoutY="60.0" mnemonicParsing="false" onAction="#employeeSearchButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" text="Keresés" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Button>
                         <ScrollPane layoutX="31.0" layoutY="132.0" prefHeight="287.0" prefWidth="493.0">
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="288.0" prefWidth="492.0" />
                           </content>
                         </ScrollPane>
-                        <Button layoutX="574.0" layoutY="120.0" mnemonicParsing="false" onAction="#employeeAddButton" text="Dolgozó Hozzáadása" />
+                        <Button layoutX="574.0" layoutY="120.0" mnemonicParsing="false" onAction="#employeeAddButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" text="Dolgozó Hozzáadása" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Button>
                         <TextField fx:id="idField" layoutX="20.0" layoutY="67.0" />
-                        <Label layoutX="20.0" layoutY="29.0" prefHeight="38.0" prefWidth="109.0" text="ID" />
+                        <Label layoutX="20.0" layoutY="29.0" prefHeight="38.0" prefWidth="109.0" style="-fx-font-size:: 16px; -fx-text-fill: #5a5a5a; -fx-font-weight: bold;" text="ID">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                      </children>
                   </AnchorPane>
             </content>
@@ -37,15 +53,30 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="25.0" layoutY="14.0" text="PC_ID" />
-                        <Label layoutX="164.0" layoutY="14.0" text="Márka" />
-                        <Label layoutX="328.0" layoutY="14.0" text="Verzió" />
-                        <Label layoutX="490.0" layoutY="14.0" text="Tulajdonos" />
-                        <TextField fx:id="pcIDfield" layoutX="25.0" layoutY="37.0" prefHeight="25.0" prefWidth="117.0" />
-                        <TextField fx:id="brandfield" layoutX="164.0" layoutY="37.0" prefHeight="25.0" prefWidth="132.0" />
-                        <TextField fx:id="versionfield" layoutX="328.0" layoutY="37.0" prefHeight="25.0" prefWidth="130.0" />
-                        <TextField fx:id="ownerfield" layoutX="490.0" layoutY="37.0" prefHeight="25.0" prefWidth="125.0" />
-                        <Button layoutX="650.0" layoutY="37.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" text="Keresés" />
+                        <Label layoutX="25.0" layoutY="10.0" text="PC_ID" textFill="#5a5a5a">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font></Label>
+                        <Label layoutX="173.0" layoutY="10.0" text="Márka" textFill="#5a5a5a">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font></Label>
+                        <Label layoutX="320.0" layoutY="10.0" text="Verzió" textFill="#5a5a5a">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font></Label>
+                        <Label layoutX="472.0" layoutY="10.0" text="Tulajdonos" textFill="#5a5a5a">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font></Label>
+                        <TextField fx:id="pcIDfield" layoutX="25.0" layoutY="35.0" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: 357ae8; -fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: 8ab6ff;" styleClass="szovegmezo" />
+                        <TextField fx:id="brandfield" layoutX="173.0" layoutY="35.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: 357ae8; -fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: 8ab6ff;" styleClass="szovegmezo" />
+                        <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: 357ae8; -fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: 8ab6ff;" styleClass="szovegmezo" />
+                        <TextField fx:id="ownerfield" layoutX="472.0" layoutY="36.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: 357ae8; -fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: 8ab6ff;" styleClass="szovegmezo" />
+                        <Button layoutX="649.0" layoutY="35.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" text="Keresés" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Button>
                         <ScrollPane layoutX="37.0" layoutY="105.0" prefHeight="315.0" prefWidth="423.0">
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="333.0" prefWidth="436.0" />
