@@ -41,9 +41,9 @@
                               <Font name="System Bold" size="14.0" />
                            </font></Button>
                         <TextField fx:id="idField" layoutX="20.0" layoutY="67.0" />
-                        <Label layoutX="20.0" layoutY="29.0" prefHeight="38.0" prefWidth="109.0" style="-fx-font-size:: 16px; -fx-text-fill: #5a5a5a; -fx-font-weight: bold;" text="ID">
+                        <Label layoutX="20.0" layoutY="29.0" prefHeight="38.0" prefWidth="109.0" text="ID" textFill="#5a5a5a">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font></Label>
                      </children>
                   </AnchorPane>
