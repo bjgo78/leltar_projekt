@@ -21,14 +21,14 @@
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font></Label>
-                        <TextField fx:id="jobTitleField" layoutX="352.0" layoutY="65.0" prefHeight="29.0" prefWidth="140.0" style="-fx-background-color: 357ae8; -fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: 8ab6ff;" styleClass="szovegmezo" />
-                        <TextField fx:id="nameField" layoutX="181.0" layoutY="65.0" prefHeight="29.0" prefWidth="140.0" style="-fx-background-color: 357ae8; -fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: 8ab6ff;" styleClass="szovegmezo" />
-                        <TextField fx:id="idField" layoutX="20.0" layoutY="65.0" prefHeight="29.0" prefWidth="140.0" style="-fx-background-color: 357ae8; -fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: 8ab6ff;" styleClass="szovegmezo" />
+                        <TextField fx:id="jobTitleField" layoutX="352.0" layoutY="65.0" prefHeight="29.0" prefWidth="140.0" style="-fx-background-radius: 5; -fx-border-color: #8ab6ff; -fx-padding: 6 10 6 10;" styleClass="szovegmezo" />
+                        <TextField fx:id="nameField" layoutX="181.0" layoutY="65.0" prefHeight="29.0" prefWidth="140.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
+                        <TextField fx:id="idField" layoutX="20.0" layoutY="65.0" prefHeight="29.0" prefWidth="140.0" style="-fx-background-radius: 5; -fx-border-color: #8ab6ff; -fx-padding: 6 10 6 10;" styleClass="szovegmezo" />
                         <Label layoutX="352.0" layoutY="40.0" text="Munkakör" textFill="#5a5a5a">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font></Label>
-                        <Button layoutX="609.0" layoutY="60.0" mnemonicParsing="false" onAction="#employeeSearchButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" text="Keresés" textFill="WHITE">
+                        <Button layoutX="598.0" layoutY="60.0" mnemonicParsing="false" onAction="#employeeSearchButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@style.css" text="Keresés" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Button>
@@ -37,7 +37,7 @@
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="288.0" prefWidth="492.0" />
                           </content>
                         </ScrollPane>
-                        <Button layoutX="574.0" layoutY="120.0" mnemonicParsing="false" onAction="#employeeAddButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" text="Dolgozó Hozzáadása" textFill="WHITE">
+                        <Button layoutX="548.0" layoutY="122.0" mnemonicParsing="false" onAction="#employeeAddButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@style.css" text="Dolgozó Hozzáadása" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Button>
@@ -69,11 +69,11 @@
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font></Label>
-                        <TextField fx:id="pcIDfield" layoutX="25.0" layoutY="35.0" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: 357ae8; -fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: 8ab6ff;" styleClass="szovegmezo" />
-                        <TextField fx:id="brandfield" layoutX="173.0" layoutY="35.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: 357ae8; -fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: 8ab6ff;" styleClass="szovegmezo" />
-                        <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: 357ae8; -fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: 8ab6ff;" styleClass="szovegmezo" />
-                        <TextField fx:id="ownerfield" layoutX="472.0" layoutY="36.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: 357ae8; -fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: 8ab6ff;" styleClass="szovegmezo" />
-                        <Button layoutX="649.0" layoutY="35.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" text="Keresés" textFill="WHITE">
+                        <TextField fx:id="pcIDfield" layoutX="25.0" layoutY="35.0" prefHeight="25.0" prefWidth="130.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
+                        <TextField fx:id="brandfield" layoutX="173.0" layoutY="35.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
+                        <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
+                        <TextField fx:id="ownerfield" layoutX="472.0" layoutY="36.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
+                        <Button layoutX="633.0" layoutY="30.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@style.css" text="Keresés" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Button>
