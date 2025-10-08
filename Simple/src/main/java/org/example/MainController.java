@@ -49,7 +49,7 @@ public class MainController {
         layout.getChildren().addAll(userLabel, userField, passLabel, passField, loginButton, statusLabel);
         layout.setStyle("-fx-padding: 20; -fx-alignment: center;");
 
-        Scene scene = new Scene(layout, 300, 200);
+        Scene scene = new Scene(layout, 300, 250);
 
         scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
 
