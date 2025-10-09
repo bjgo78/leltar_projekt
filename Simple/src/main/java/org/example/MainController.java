@@ -1,9 +1,11 @@
 package org.example;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -22,6 +24,13 @@ public class MainController {
         loginStage.setTitle("Bejelentkezés");
 
         // Logo & Title
+        javafx.scene.image.ImageView logoView = new javafx.scene.image.ImageView(
+                getClass().getResource("/org/example/images/logo.png").toExternalForm()
+        );
+        logoView.setFitWidth(64);
+        logoView.setPreserveRatio(true);
+
+
         Label titleLabel = new Label("Lentory");
         titleLabel.setStyle("-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2F89FC;");
 
@@ -29,13 +38,13 @@ public class MainController {
         subtitleLabel.setStyle("-fx-font-size: 13px; -fx-text-fill: #888;");
 
         // Login Form
-        Label userLabel = new Label("Felhasználónév:");
+        Label userLabel = new Label("Username:");
         TextField userField = new TextField();
 
-        Label passLabel = new Label("Jelszó:");
+        Label passLabel = new Label("Password:");
         PasswordField passField = new PasswordField();
 
-        Button loginButton = new Button("Bejelentkezés");
+        Button loginButton = new Button("Sign in");
         Label statusLabel = new Label();
 
         loginStage.setOnCloseRequest(e -> {
@@ -53,8 +62,15 @@ public class MainController {
             }
         });
 
+        // Display
+        HBox userBox = new HBox(10, userLabel);
+        userBox.setAlignment(Pos.CENTER_LEFT);
+
+        HBox passBox = new HBox(10, passLabel);
+        passBox.setAlignment(Pos.CENTER_LEFT);
+
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(titleLabel, subtitleLabel, userLabel, userField, passLabel, passField, loginButton, statusLabel);
+        layout.getChildren().addAll(logoView, titleLabel, subtitleLabel, userBox, userField, passBox, passField, loginButton, statusLabel);
         layout.setStyle("-fx-padding: 20; -fx-alignment: center;");
 
         Scene scene = new Scene(layout, 300, 400);
