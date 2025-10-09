@@ -21,6 +21,14 @@ public class MainController {
         loginStage.initModality(Modality.APPLICATION_MODAL);
         loginStage.setTitle("Bejelentkezés");
 
+        // Logo & Title
+        Label titleLabel = new Label("Lentory");
+        titleLabel.setStyle("-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2F89FC;");
+
+        Label subtitleLabel = new Label("Inventory Management System");
+        subtitleLabel.setStyle("-fx-font-size: 13px; -fx-text-fill: #888;");
+
+        // Login Form
         Label userLabel = new Label("Felhasználónév:");
         TextField userField = new TextField();
 
@@ -46,10 +54,10 @@ public class MainController {
         });
 
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(userLabel, userField, passLabel, passField, loginButton, statusLabel);
+        layout.getChildren().addAll(titleLabel, subtitleLabel, userLabel, userField, passLabel, passField, loginButton, statusLabel);
         layout.setStyle("-fx-padding: 20; -fx-alignment: center;");
 
-        Scene scene = new Scene(layout, 300, 250);
+        Scene scene = new Scene(layout, 300, 400);
 
         scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
 
