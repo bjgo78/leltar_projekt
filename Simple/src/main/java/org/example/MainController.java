@@ -47,6 +47,8 @@ public class MainController {
         Button loginButton = new Button("Sign in");
         Label statusLabel = new Label();
 
+        Label versionLabel = new Label("v0.2");
+
         loginStage.setOnCloseRequest(e -> {
                     System.exit(0);
         });
@@ -70,10 +72,10 @@ public class MainController {
         passBox.setAlignment(Pos.CENTER_LEFT);
 
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(logoView, titleLabel, subtitleLabel, userBox, userField, passBox, passField, loginButton, statusLabel);
+        layout.getChildren().addAll(logoView, titleLabel, subtitleLabel, userBox, userField, passBox, passField, loginButton, statusLabel, versionLabel);
         layout.setStyle("-fx-padding: 20; -fx-alignment: center;");
 
-        Scene scene = new Scene(layout, 300, 400);
+        Scene scene = new Scene(layout, 350, 450);
 
         scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
 
