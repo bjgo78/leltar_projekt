@@ -11,27 +11,6 @@ public class SQLQuery {
     public String searchEmployee(String userId, String name, String jobTitle){
         String query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and job_title LIKE '%"+jobTitle+"%' and userid LIKE '%"+userId+"%'";;
         StringBuilder result = new StringBuilder();
-        /*if (name.isEmpty() && jobTitle.isEmpty() && userId.isEmpty()){
-            query = "SELECT userid, name, job_title FROM employee";
-        } else if (name.isEmpty() && !jobTitle.isEmpty()) {
-            if (userId.isEmpty()){
-                query = "SELECT userid, name, job_title FROM employee WHERE job_title LIKE '%"+jobTitle+"%'";
-            } else {
-                query = "SELECT userid, name, job_title FROM employee WHERE job_title LIKE '%"+jobTitle+"%' and userid LIKE '%"+userId+"%'";
-            }
-        } else if (!name.isEmpty() && jobTitle.isEmpty()) {
-            if (userId.isEmpty()){
-                query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%'";
-            } else {
-                query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and userid LIKE '%"+userId+"%'";
-            }
-        } else if (name.isEmpty() && jobTitle.isEmpty() && !userId.isEmpty()) {
-            query = "SELECT userid, name, job_title FROM employee WHERE userid LIKE '%"+userId+"%'";
-        } else if (!name.isEmpty() && !jobTitle.isEmpty() && userId.isEmpty()) {
-            query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and job_title LIKE '%"+jobTitle+"%'";
-        } else {
-            query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and job_title LIKE '%"+jobTitle+"%' and userid LIKE '%"+userId+"%'";
-        }*/
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
@@ -85,5 +64,33 @@ public class SQLQuery {
             e.printStackTrace();
         }
         return result.toString();
+    }
+    public void addPC(String pcId, String brand, String version, String owner){
+        String ownerQuery = "SELECT userid FROM employee WHERE name ='"+owner+"'";
+        String resultID = "";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(ownerQuery);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                int resid = rs.getInt("userid");
+                resultID = Integer.toString(resid);
+            }
+            System.out.println("Connected to MariaDB successfully!\n");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        String query =  "INSERT INTO pc (brand, version, userid) VALUES ('"+ brand +"', '"+ version +"', '"+ resultID +"')";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            System.out.println("Connected to MariaDB successfully!\n");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

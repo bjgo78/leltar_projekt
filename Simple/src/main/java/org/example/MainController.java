@@ -86,17 +86,17 @@ public class MainController {
 
     @FXML
     void PeripherialSearchButton() {
-
+        System.out.println(sqlQuery.searchPc(pcIDfield.getText(), brandfield.getText(), versionfield.getText(),ownerfield.getText()));
     }
 
     @FXML
     void employeeSearchButton() {
-        //System.out.println(String.format("Name: %s\nJobID: %s", nameField.getText(), jobTitleField.getText()));
         System.out.println(sqlQuery.searchEmployee(idField.getText(), nameField.getText(), jobTitleField.getText()));
     }
     @FXML
     void employeeAddButton() {
         sqlQuery.addEmployee("Teszt Pista", "HR");
+        sqlQuery.addPC("21", "Dell", "Vostro 3070", "Teszt Pista");
     }
 
 
