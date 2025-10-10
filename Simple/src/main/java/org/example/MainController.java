@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.example.util.Assets;
 
 public class MainController {
     SQLQuery sqlQuery = new SQLQuery();
@@ -24,9 +25,7 @@ public class MainController {
         loginStage.initModality(Modality.APPLICATION_MODAL);
 
         // Logo & Title
-        ImageView logoView = new ImageView(
-                getClass().getResource("/org/example/images/logo.png").toExternalForm()
-        );
+        ImageView logoView = new ImageView(Assets.APP_LOGO);
         logoView.setFitWidth(80);
         logoView.setPreserveRatio(true);
 
@@ -48,7 +47,7 @@ public class MainController {
 
         Button loginButton = new Button("Sign in");
         Label statusLabel = new Label();
-        Label versionLabel = new Label("v0.2");
+        Label versionLabel = new Label("v0.0.2");
         versionLabel.getStyleClass().add("version");
 
         loginStage.setOnCloseRequest(e -> {
@@ -79,7 +78,7 @@ public class MainController {
 
         Scene scene = new Scene(layout, 350, 450);
 
-        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("styles/login.css").toExternalForm());
 
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {

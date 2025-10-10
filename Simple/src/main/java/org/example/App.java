@@ -13,10 +13,10 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         var loader = new FXMLLoader(getClass().getResource("main.fxml"));
         var scene = new Scene(loader.load());
-        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("styles/style.css").toExternalForm());
 
         stage.setScene(scene);
-        stage.setTitle("Leltár 0.0.1");
+        stage.setTitle("Lentory 0.0.2");
         stage.show();
     }
 
