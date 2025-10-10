@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -21,33 +22,34 @@ public class MainController {
     private void showLoginWindow() {
         Stage loginStage = new Stage();
         loginStage.initModality(Modality.APPLICATION_MODAL);
-        loginStage.setTitle("Bejelentkezés");
 
         // Logo & Title
-        javafx.scene.image.ImageView logoView = new javafx.scene.image.ImageView(
+        ImageView logoView = new ImageView(
                 getClass().getResource("/org/example/images/logo.png").toExternalForm()
         );
-        logoView.setFitWidth(64);
+        logoView.setFitWidth(80);
         logoView.setPreserveRatio(true);
 
 
         Label titleLabel = new Label("Lentory");
-        titleLabel.setStyle("-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2F89FC;");
+        titleLabel.getStyleClass().add("title");
 
         Label subtitleLabel = new Label("Inventory Management System");
-        subtitleLabel.setStyle("-fx-font-size: 13px; -fx-text-fill: #888;");
+        subtitleLabel.getStyleClass().add("subtitle");
 
         // Login Form
         Label userLabel = new Label("Username:");
         TextField userField = new TextField();
+        userField.setPromptText("Enter your username");
 
         Label passLabel = new Label("Password:");
         PasswordField passField = new PasswordField();
+        passField.setPromptText("Enter your password");
 
         Button loginButton = new Button("Sign in");
         Label statusLabel = new Label();
-
         Label versionLabel = new Label("v0.2");
+        versionLabel.getStyleClass().add("version");
 
         loginStage.setOnCloseRequest(e -> {
                     System.exit(0);
@@ -85,6 +87,7 @@ public class MainController {
             }
         });
 
+        loginStage.setTitle("Lentory login");
         loginStage.setScene(scene);
         loginStage.showAndWait();
     }
