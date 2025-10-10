@@ -1,37 +1,73 @@
 .root {
-    -fx-background-color: lightblue;
+    -fx-background-color: linear-gradient(to bottom right, #10244F, #13141f);
+    -fx-alignment: center;
+    -fx-font-family: 'Inter';
 }
 
-.label{
-	-fx-font-size: 16px;
-	-fx-text-fill: #5a5a5a;
-	-fx-font-weight: bold;
+.vbox {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 30;
+    -fx-spacing: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 20, 0, 0, 10);
 }
 
-.button{
-	-fx-background-color: #357ae8;
+.label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(255, 255, 255, 0.85);
+}
+
+.label.title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.label.subtitle {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-text-fill: rgba(255, 255, 255, 0.6);
+}
+
+.text-field, .password-field {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: 750;
+    -fx-prompt-text-fill: rgba(255,255,255,0.5);
+    -fx-padding: 10;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: rgba(0, 255, 255, 0.5);
+    -fx-background-color: rgba(255,255,255,0.15);
+}
+
+.button {
+    -fx-background-color: linear-gradient(to right, #00bcd4, #9c27b0);
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-background-radius: 6;
-    -fx-padding: 8 16 8 16;
+    -fx-background-radius: 10;
+    -fx-padding: 10 20;
     -fx-cursor: hand;
-    -fx-font-size: 13px;
+    -fx-font-size: 14px;
 }
+
 .button:hover {
-    -fx-background-color: #60dedb;
+    -fx-background-color: linear-gradient(to right, #00acc1, #9813FA);
 }
 
 .button:pressed {
-    -fx-background-color: #2f64c9;
-
-}
-.text-field,
-.password-field {
-    -fx-background-color: #f3f7ff;
-    -fx-border-color: #8ab6ff;
-    -fx-border-radius: 5;
-    -fx-background-radius: 5;
-    -fx-padding: 6 10 6 10;
-    -fx-font-size: 13px;
+    -fx-background-color: linear-gradient(to right, #0097a7, #7b1fa2);
 }
 
+.label.version {
+    -fx-font-size: 11px;
+    -fx-text-fill: rgba(255,255,255,0.4);
+}

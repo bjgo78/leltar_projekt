@@ -37,11 +37,11 @@ public class MainController {
         subtitleLabel.getStyleClass().add("subtitle");
 
         // Login Form
-        Label userLabel = new Label("Username:");
+        Label userLabel = new Label("Username");
         TextField userField = new TextField();
         userField.setPromptText("Enter your username");
 
-        Label passLabel = new Label("Password:");
+        Label passLabel = new Label("Password");
         PasswordField passField = new PasswordField();
         passField.setPromptText("Enter your password");
 
@@ -76,7 +76,7 @@ public class MainController {
         layout.getChildren().addAll(logoView, titleLabel, subtitleLabel, userBox, userField, passBox, passField, loginButton, statusLabel, versionLabel);
         layout.setStyle("-fx-padding: 20; -fx-alignment: center;");
 
-        Scene scene = new Scene(layout, 350, 450);
+        Scene scene = new Scene(layout, 350, 500);
 
         scene.getStylesheets().add(getClass().getResource("styles/login.css").toExternalForm());
 
