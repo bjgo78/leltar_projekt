@@ -9,7 +9,7 @@ public class SQLQuery {
     String user = "leltar";
     String password = "leltar";
     public String searchEmployee(String userId, String name, String jobTitle){
-        String query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and job_title LIKE '%"+jobTitle+"%' and userid LIKE '%"+userId+"%'";;
+        String query = "SELECT userid, name, job_title FROM employee WHERE name LIKE '%"+name+"%' and job_title LIKE '%"+jobTitle+"%' and userid LIKE '%"+userId+"%'";
         StringBuilder result = new StringBuilder();
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement(query);
@@ -65,7 +65,7 @@ public class SQLQuery {
         }
         return result.toString();
     }
-    public void addPC(String pcId, String brand, String version, String owner){
+    public void addPC(String brand, String version, String owner){
         String ownerQuery = "SELECT userid FROM employee WHERE name ='"+owner+"'";
         String resultID = "";
 

@@ -96,7 +96,7 @@ public class MainController {
     @FXML
     void employeeAddButton() {
         sqlQuery.addEmployee("Teszt Pista", "HR");
-        sqlQuery.addPC("21", "Dell", "Vostro 3070", "Teszt Pista");
+        sqlQuery.addPC("Dell", "Vostro 3070", "Teszt Pista");
     }
 
 
