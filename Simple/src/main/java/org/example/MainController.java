@@ -15,7 +15,7 @@ public class MainController {
     private void initialize() {
         showLoginWindow(); //login ablak
         Tooltip tooltip1 = new Tooltip("A megfelelő mezőbe ird be az adataid majd KERESÉS gomb.");
-        Tooltip tooltip2= new Tooltip("A megfelelő mezőbe ird be a perifériáid majd KERESÉS gomb.");
+        Tooltip tooltip2= new Tooltip("A megfelelő mezőbe ird be a perifériáid tulajdonságait majd KERESÉS gomb.");
 
         Tooltip.install(infoLabel1, tooltip1);
         Tooltip.install(infoLabel2, tooltip2);
