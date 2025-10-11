@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../styles/style.css" fx:controller="org.example.MainController">
    <children>
       <TabPane prefHeight="480.0" prefWidth="694.0" style="-fx-background-color: lightblue;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -28,7 +28,7 @@
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font></Label>
-                        <Button layoutX="598.0" layoutY="60.0" mnemonicParsing="false" onAction="#employeeSearchButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@style.css" text="Keresés" textFill="WHITE">
+                        <Button layoutX="598.0" layoutY="60.0" mnemonicParsing="false" onAction="#employeeSearchButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@../styles/style.css" text="Keresés" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Button>
@@ -37,7 +37,7 @@
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="288.0" prefWidth="492.0" />
                           </content>
                         </ScrollPane>
-                        <Button layoutX="548.0" layoutY="122.0" mnemonicParsing="false" onAction="#employeeAddButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@style.css" text="Dolgozó Hozzáadása" textFill="WHITE">
+                        <Button layoutX="548.0" layoutY="122.0" mnemonicParsing="false" onAction="#employeeAddButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@../styles/style.css" text="Dolgozó Hozzáadása" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Button>
@@ -73,7 +73,7 @@
                         <TextField fx:id="brandfield" layoutX="173.0" layoutY="35.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
                         <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
                         <TextField fx:id="ownerfield" layoutX="472.0" layoutY="36.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
-                        <Button layoutX="633.0" layoutY="30.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@style.css" text="Keresés" textFill="WHITE">
+                        <Button layoutX="633.0" layoutY="30.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@../styles/style.css" text="Keresés" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Button>

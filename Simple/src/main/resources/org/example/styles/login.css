@@ -5,9 +5,6 @@
 }
 
 .vbox {
-    -fx-background-color: rgba(255, 255, 255, 0.08);
-    -fx-border-color: rgba(255, 255, 255, 0.2);
-    -fx-border-radius: 20;
     -fx-background-radius: 20;
     -fx-padding: 30;
     -fx-spacing: 15;
@@ -56,6 +53,7 @@
     -fx-padding: 10 20;
     -fx-cursor: hand;
     -fx-font-size: 14px;
+    -fx-pref-width: 350;
 }
 
 .button:hover {
