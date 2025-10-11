@@ -14,6 +14,11 @@ public class MainController {
     @FXML
     private void initialize() {
         showLoginWindow(); //login ablak
+        Tooltip tooltip1 = new Tooltip("A megfelelő mezőbe ird be az adataid majd KERESÉS gomb.");
+        Tooltip tooltip2= new Tooltip("A megfelelő mezőbe ird be a perifériáid majd KERESÉS gomb.");
+
+        Tooltip.install(infoLabel1, tooltip1);
+        Tooltip.install(infoLabel2, tooltip2);
     }
 
     private void showLoginWindow() {
@@ -83,6 +88,14 @@ public class MainController {
 
     @FXML
     private TextField versionfield;
+
+    @FXML
+    private Label infoLabel1;
+
+    @FXML
+    private Label infoLabel2;
+
+
 
     @FXML
     void PeripherialSearchButton() {
