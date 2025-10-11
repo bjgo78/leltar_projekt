@@ -45,6 +45,11 @@
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font></Label>
+                        <Label fx:id="infoLabel1" layoutX="712.0" layoutY="402.0" prefHeight="35.0" prefWidth="0.0" text="i">
+                           <font>
+                              <Font name="Lucida Sans Demibold Italic" size="24.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
             </content>
@@ -82,6 +87,11 @@
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="333.0" prefWidth="436.0" />
                           </content>
                         </ScrollPane>
+                        <Label fx:id="infoLabel2" layoutX="710.0" layoutY="406.0" text="i">
+                           <font>
+                              <Font name="Lucida Sans Demibold Italic" size="24.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
             </content>
           </Tab>
