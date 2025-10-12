@@ -131,8 +131,8 @@ public class MainController {
                 alert.setContentText("Töltse ki a mezőket");
                 alert.showAndWait();
             } else {
-                System.out.println(name +" "+ job);
-                //sqlQuery.addEmployee("Teszt Pista", "HR");
+                //System.out.println(name +" "+ job);
+                sqlQuery.addEmployee(name, job);
 
                 popupStage.close();
             }
@@ -180,8 +180,8 @@ public class MainController {
                 alert.setContentText("Töltse ki a mezőket");
                 alert.showAndWait();
             } else {
-                System.out.println(brand + " " + version + " " + owner);
-                //sqlQuery.addPC("Dell", "Vostro 3070", "Teszt Pista");
+                //System.out.println(brand + " " + version + " " + owner);
+                sqlQuery.addPC(brand, version, owner);
                 popupStage.close();
             }
         };
