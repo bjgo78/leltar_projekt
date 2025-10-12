@@ -1,7 +1,9 @@
 package org.example;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.*;import vafx.scene.input.KeyCode;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -10,7 +12,18 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
 public class MainController {
-    SQLQuery sqlQuery = new    @FXL
+    SQLQuery sqlQuery = new SQLQuery();
+
+    @FXML
+    private void initialize() {
+        Tooltip tooltip1 = new Tooltip("A megfelelő mezőbe ird be az adataid majd KERESÉS gomb.");
+        Tooltip tooltip2= new Tooltip("A megfelelő mezőbe ird be a perifériáid tulajdonságait majd KERESÉS gomb.");
+
+        Tooltip.install(infoLabel1, tooltip1);
+        Tooltip.install(infoLabel2, tooltip2);
+    }
+
+    @FXML
     private TextField jobTitleField;
 
     @FXML
@@ -41,8 +54,8 @@ public class MainController {
 
     @FXML
     void PeripherialSearchButton() {
-            rintln(sqlQuery.searchPc(pcIDfi
-            
+        System.out.println(sqlQuery.searchPc(pcIDfield.getText(), brandfield.getText(), versionfield.getText(),ownerfield.getText()));
+    }
 
     @FXML
     void employeeSearchButton() {
@@ -100,18 +113,18 @@ public class MainController {
         Label brandLabel = new Label("Márka:");
         TextField brandField = new TextField();
 
+        Label versionLabel = new Label("Verzió:");
+        TextField versionField = new TextField();
 
+        Label ownerLabel = new Label("Tulajdonos:");
+        TextField ownerField = new TextField();
 
-                
         Button addButton = new Button("Periféria hozzáadása");
 
-                
         Runnable addPeripheral = () -> {
             String brand = brandField.getText().trim();
             String version = versionField.getText().trim();
-     
-
-    
+            String owner = ownerField.getText().trim();
 
             if (brand.isEmpty() || version.isEmpty() || owner.isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -134,14 +147,16 @@ public class MainController {
         layout.setPadding(new Insets(15));
         layout.getChildren().addAll(
                 brandLabel, brandField,
-                ve rsionLabel, versionField,
-                ow nerLabel, ownerField,
+                versionLabel, versionField,
+                ownerLabel, ownerField,
                 addButton
         );
         layout.setAlignment(Pos.CENTER);
 
+        Scene scene = new Scene(layout, 320, 350);
+        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
 
-
+        popupStage.setScene(scene);
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.showAndWait();
 
@@ -149,10 +164,3 @@ public class MainController {
 
 
 }
-
-     
-
-
-
-     
-
