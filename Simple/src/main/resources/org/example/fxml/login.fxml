@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane fx:controller="org.example.LoginController"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            prefWidth="400" prefHeight="400"
+            stylesheets="@../styles/login.css"
+            styleClass="root">
+
+    <children>
+        <VBox alignment="TOP_CENTER" spacing="15"
+              prefWidth="350"
+              AnchorPane.topAnchor="25"
+              AnchorPane.leftAnchor="25"
+              AnchorPane.rightAnchor="25"
+              styleClass="vbox">
+
+            <HBox alignment="CENTER_LEFT" spacing="10" HBox.hgrow="ALWAYS">
+                <ImageView fx:id="logoView" fitWidth="60" fitHeight="60" preserveRatio="true"/>
+                <VBox alignment="CENTER_LEFT" spacing="2">
+                    <Label text="Lentory" styleClass="title"/>
+                    <Label text="Inventory Management System" styleClass="subtitle"/>
+                </VBox>
+            </HBox>
+
+            <VBox alignment="CENTER_LEFT" spacing="3">
+                <Label text="Username" styleClass="label"/>
+                <TextField fx:id="usernameField"
+                           promptText="Enter your username"
+                           styleClass="text-field"/>
+            </VBox>
+
+            <VBox alignment="CENTER_LEFT" spacing="3">
+                <Label text="Password" styleClass="label"/>
+                <PasswordField fx:id="passwordField"
+                               promptText="Enter your password"
+                               styleClass="password-field"/>
+            </VBox>
+
+            <Label fx:id="statusLabel"/>
+
+            <Button fx:id="signInButton"
+                    text="Sign in"
+                    onAction="#handleSignIn"
+                    styleClass="button"/>
+
+            <Label text="v0.0.2" styleClass="version"/>
+        </VBox>
+    </children>
+</AnchorPane>

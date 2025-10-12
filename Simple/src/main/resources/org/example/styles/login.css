@@ -1,0 +1,70 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #10244F, #13141f);
+    -fx-alignment: center;
+    -fx-font-family: 'Inter';
+}
+
+.vbox {
+    -fx-background-radius: 20;
+    -fx-padding: 30;
+    -fx-spacing: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 20, 0, 0, 10);
+}
+
+.label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(255, 255, 255, 0.85);
+}
+
+.label.title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.label.subtitle {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-text-fill: rgba(255, 255, 255, 0.6);
+}
+
+.text-field, .password-field {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-prompt-text-fill: rgba(255,255,255,0.5);
+    -fx-padding: 10;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: rgba(0, 255, 255, 0.5);
+    -fx-background-color: rgba(255,255,255,0.15);
+}
+
+.button {
+    -fx-background-color: linear-gradient(to right, #00bcd4, #9c27b0);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-pref-width: 350;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #00acc1, #9813FA);
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(to right, #0097a7, #7b1fa2);
+}
+
+.label.version {
+    -fx-font-size: 11px;
+    -fx-text-fill: rgba(255,255,255,0.4);
+}
