@@ -153,6 +153,10 @@ public class MainController {
         popupStage.showAndWait();
 
     }
+    @FXML
+    void peripheralAdd(ActionEvent event) {
+        
+    }
 
 
 }
