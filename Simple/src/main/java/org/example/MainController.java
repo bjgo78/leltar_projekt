@@ -17,7 +17,7 @@ public class MainController {
     @FXML
     private void initialize() {
         Tooltip tooltip1 = new Tooltip("A megfelelő mezőbe ird be az adataid majd KERESÉS gomb.");
-        Tooltip tooltip2= new Tooltip("A megfelelő mezőbe ird be a perifériáid tulajdonságait majd KERESÉS gomb.");
+        Tooltip tooltip2= new Tooltip("A megfelelő mezőbe ird be a PC tulajdonságait majd KERESÉS gomb.");
 
         Tooltip.install(infoLabel1, tooltip1);
         Tooltip.install(infoLabel2, tooltip2);
@@ -106,9 +106,9 @@ public class MainController {
 
     }
     @FXML
-    void peripheralAdd(ActionEvent event) {
+    void pcAdd(ActionEvent event) {
         Stage popupStage = new Stage();
-        popupStage.setTitle("Periféria hozzáadása");
+        popupStage.setTitle("PC hozzáadása");
 
         Label brandLabel = new Label("Márka:");
         TextField brandField = new TextField();
@@ -119,7 +119,7 @@ public class MainController {
         Label ownerLabel = new Label("Tulajdonos:");
         TextField ownerField = new TextField();
 
-        Button addButton = new Button("Periféria hozzáadása");
+        Button addButton = new Button("PC hozzáadása");
 
         Runnable addPeripheral = () -> {
             String brand = brandField.getText().trim();
