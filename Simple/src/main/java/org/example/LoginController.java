@@ -21,6 +21,9 @@ public class LoginController {
     @FXML
     public void initialize() {
         logoView.setImage(Assets.APP_LOGO);
+
+        usernameField.setOnAction(e -> handleSignIn());
+        passwordField.setOnAction(e -> handleSignIn());
     }
 
     public boolean isLoginSuccessful() {
