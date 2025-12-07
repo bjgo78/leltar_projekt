@@ -2,105 +2,103 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="751.0" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainController">
-   <children>
-      <TabPane prefHeight="480.0" prefWidth="694.0" style="-fx-background-color: lightblue;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <tabs>
-          <Tab style="-fx-text-fill: #ffffff;" text="Kereső">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="181.0" layoutY="29.0" prefHeight="38.0" prefWidth="109.0" text="Név" textFill="#5a5a5a">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font></Label>
-                        <TextField fx:id="jobTitleField" layoutX="352.0" layoutY="65.0" prefHeight="29.0" prefWidth="140.0" style="-fx-background-radius: 5; -fx-border-color: #8ab6ff; -fx-padding: 6 10 6 10;" styleClass="szovegmezo" />
-                        <TextField fx:id="nameField" layoutX="181.0" layoutY="65.0" prefHeight="29.0" prefWidth="140.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
-                        <TextField fx:id="idField" layoutX="20.0" layoutY="65.0" prefHeight="29.0" prefWidth="140.0" style="-fx-background-radius: 5; -fx-border-color: #8ab6ff; -fx-padding: 6 10 6 10;" styleClass="szovegmezo" />
-                        <Label layoutX="352.0" layoutY="40.0" text="Munkakör" textFill="#5a5a5a">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font></Label>
-                        <Button layoutX="598.0" layoutY="60.0" mnemonicParsing="false" onAction="#employeeSearchButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@../styles/style.css" text="Keresés" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font></Button>
-                        <ScrollPane layoutX="31.0" layoutY="132.0" prefHeight="287.0" prefWidth="493.0">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="288.0" prefWidth="492.0" />
-                          </content>
-                        </ScrollPane>
-                        <Button layoutX="548.0" layoutY="122.0" mnemonicParsing="false" onAction="#employeeAddButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@../styles/style.css" text="Dolgozó Hozzáadása" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font></Button>
-                        <Label layoutX="20.0" layoutY="29.0" prefHeight="38.0" prefWidth="109.0" text="ID" textFill="#5a5a5a">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font></Label>
-                        <Label fx:id="infoLabel1" layoutX="712.0" layoutY="402.0" prefHeight="35.0" prefWidth="0.0" text="i">
-                           <font>
-                              <Font name="Lucida Sans Demibold Italic" size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="PC kereső">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="25.0" layoutY="10.0" text="PC_ID" textFill="#5a5a5a">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font></Label>
-                        <Label layoutX="173.0" layoutY="10.0" text="Márka" textFill="#5a5a5a">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font></Label>
-                        <Label layoutX="320.0" layoutY="10.0" text="Verzió" textFill="#5a5a5a">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font></Label>
-                        <Label layoutX="472.0" layoutY="10.0" text="Tulajdonos" textFill="#5a5a5a">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font></Label>
-                        <TextField fx:id="pcIDfield" layoutX="25.0" layoutY="35.0" prefHeight="25.0" prefWidth="130.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
-                        <TextField fx:id="brandfield" layoutX="173.0" layoutY="35.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
-                        <Button layoutX="537.0" layoutY="105.0" mnemonicParsing="false" onAction="#pcAdd" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@../styles/style.css" text="PC Hozzáadása" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Button>
-                        <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
-                        <TextField fx:id="ownerfield" layoutX="472.0" layoutY="36.0" prefHeight="29.0" prefWidth="130.0" style="-fx-background-radius: 5; -fx-padding: 6 10 6 10; -fx-border-color: #8ab6ff;" styleClass="szovegmezo" />
-                        <Button layoutX="633.0" layoutY="30.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" style="-fx-background-color: #357ae8; -fx-background-radius: 6;" stylesheets="@../styles/style.css" text="Keresés" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font></Button>
-                        <ScrollPane layoutX="37.0" layoutY="105.0" prefHeight="315.0" prefWidth="423.0">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="333.0" prefWidth="436.0" />
-                          </content>
-                        </ScrollPane>
-                        <Label fx:id="infoLabel2" layoutX="710.0" layoutY="406.0" text="i">
-                           <font>
-                              <Font name="Lucida Sans Demibold Italic" size="24.0" />
-                           </font>
-                        </Label>
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="950.0" styleClass="root" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainController">
+    <children>
+        <TabPane side="LEFT" prefHeight="550.0" prefWidth="950.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+
+                <Tab text="Dolgozó Kereső">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-content-area">
+                            <children>
+                                <Label layoutX="20.0" layoutY="29.0" styleClass="header-label" text="ID">
+                                    <font><Font name="System Bold" size="16.0" /></font>
+                                </Label>
+                                <Label layoutX="181.0" layoutY="29.0" styleClass="header-label" text="Név">
+                                    <font><Font name="System Bold" size="16.0" /></font>
+                                </Label>
+                                <Label layoutX="352.0" layoutY="40.0" styleClass="header-label" text="Munkakör">
+                                    <font><Font name="System Bold" size="16.0" /></font>
+                                </Label>
+
+                                <TextField fx:id="idField" layoutX="20.0" layoutY="65.0" prefHeight="35.0" prefWidth="140.0" promptText="Keresés ID alapján" />
+                                <TextField fx:id="nameField" layoutX="181.0" layoutY="65.0" prefHeight="35.0" prefWidth="140.0" promptText="Keresés Név alapján" />
+                                <TextField fx:id="jobTitleField" layoutX="352.0" layoutY="65.0" prefHeight="35.0" prefWidth="140.0" promptText="Keresés Munkakör alapján" />
+
+                                <Button layoutX="620.0" layoutY="60.0" mnemonicParsing="false" onAction="#employeeSearchButton" prefHeight="40.0" prefWidth="110.0" text="Keresés">
+                                    <font><Font name="System Bold" size="14.0" /></font>
+                                </Button>
+                                <Button layoutX="570.0" layoutY="130.0" mnemonicParsing="false" onAction="#employeeAddButton" prefHeight="40.0" prefWidth="160.0" styleClass="secondary-button" text="+ Dolgozó Hozzáadása">
+                                    <font><Font name="System Bold" size="14.0" /></font>
+                                </Button>
+
+                                <TableView fx:id="employeeTable" layoutX="31.0" layoutY="132.0" prefHeight="380.0" prefWidth="520.0">
+                                    <columns>
+                                        <TableColumn fx:id="colEmpId" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="colEmpName" prefWidth="180.0" text="Név" />
+                                        <TableColumn fx:id="colEmpJob" prefWidth="240.0" text="Munkakör" />
+                                    </columns>
+                                </TableView>
+
+                                <Label fx:id="infoLabel1" layoutX="740.0" layoutY="500.0" styleClass="info-icon" text="i" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+                <Tab text="PC Kereső">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-content-area">
+                            <children>
+                                <Label layoutX="25.0" layoutY="10.0" styleClass="header-label" text="PC_ID">
+                                    <font><Font name="System Bold" size="16.0" /></font>
+                                </Label>
+                                <Label layoutX="173.0" layoutY="10.0" styleClass="header-label" text="Márka">
+                                    <font><Font name="System Bold" size="16.0" /></font>
+                                </Label>
+                                <Label layoutX="320.0" layoutY="10.0" styleClass="header-label" text="Verzió">
+                                    <font><Font name="System Bold" size="16.0" /></font>
+                                </Label>
+                                <Label layoutX="472.0" layoutY="10.0" styleClass="header-label" text="Tulajdonos">
+                                    <font><Font name="System Bold" size="16.0" /></font>
+                                </Label>
+
+                                <TextField fx:id="pcIDfield" layoutX="25.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" />
+                                <TextField fx:id="brandfield" layoutX="173.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" />
+                                <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" />
+                                <TextField fx:id="ownerfield" layoutX="472.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" />
+
+                                <Button layoutX="633.0" layoutY="30.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" prefHeight="40.0" prefWidth="110.0" text="Keresés">
+                                    <font><Font name="System Bold" size="14.0" /></font>
+                                </Button>
+                                <Button layoutX="573.0" layoutY="105.0" mnemonicParsing="false" onAction="#pcAdd" prefHeight="40.0" prefWidth="170.0" styleClass="secondary-button" text="+ PC Hozzáadása">
+                                    <font><Font name="System Bold" size="14.0" /></font>
+                                </Button>
+
+                                <TableView fx:id="pcTable" layoutX="37.0" layoutY="105.0" prefHeight="400.0" prefWidth="520.0">
+                                    <columns>
+                                        <TableColumn fx:id="colPcId" prefWidth="60.0" text="ID" />
+                                        <TableColumn fx:id="colPcBrand" prefWidth="120.0" text="Márka" />
+                                        <TableColumn fx:id="colPcVersion" prefWidth="120.0" text="Verzió" />
+                                        <TableColumn fx:id="colPcOwner" prefWidth="200.0" text="Tulajdonos" />
+                                    </columns>
+                                </TableView>
+
+                                <Label fx:id="infoLabel2" layoutX="740.0" layoutY="500.0" styleClass="info-icon" text="i" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+            </tabs>
+        </TabPane>
+    </children>
 </AnchorPane>
