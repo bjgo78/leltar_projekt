@@ -125,7 +125,6 @@
     -fx-text-fill: #a0a0a0;
     -fx-font-weight: bold;
     -fx-font-size: 13px;
-    -fx-rotate: 90;
 }
 
 .tab:selected .tab-label {

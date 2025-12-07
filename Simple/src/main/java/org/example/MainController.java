@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -53,12 +52,18 @@ public class MainController {
     @FXML
     private TextField versionfield;
 
-    @FXML
-    private AnchorPane employeePane;
-    @FXML
-    private AnchorPane pcPane;
+    @FXML private TabPane tabPane;
+    @FXML private Tab dashboardTab;
+    @FXML private Tab employeesTab;
+    @FXML private Tab computersTab;
+
+    @FXML private Label infoLabel1;
+    @FXML private Label infoLabel2;
 
     @FXML private ImageView logoView;
+    @FXML private ImageView dashboardIcon;
+    @FXML private ImageView tabpaneEmployeeIcon;
+    @FXML private ImageView tabpaneComputerIcon;
     @FXML private ImageView employeeIcon;
     @FXML private ImageView computerIcon;
     @FXML private ImageView peripheralIcon;
@@ -69,7 +74,17 @@ public class MainController {
 
     @FXML
     private void initialize() {
+        Tooltip tooltip1 = new Tooltip("Enter your information in the appropriate field, then click the SEARCH button.");
+        Tooltip tooltip2= new Tooltip("Enter your PC's specifications in the appropriate field, then click the SEARCH button.");
+
+        Tooltip.install(infoLabel1, tooltip1);
+        Tooltip.install(infoLabel2, tooltip2);
+
         logoView.setImage(Assets.APP_LOGO);
+        dashboardIcon.setImage(Assets.DASHBOARD);
+        tabpaneEmployeeIcon.setImage(Assets.USER);
+        tabpaneComputerIcon.setImage(Assets.COMPUTER);
+
         employeeIcon.setImage(Assets.USER);
         computerIcon.setImage(Assets.COMPUTER);
         peripheralIcon.setImage(Assets.PERIPHERAL);
@@ -89,15 +104,18 @@ public class MainController {
     }
 
     @FXML
+    void showDashboardView(ActionEvent event) {
+        tabPane.getSelectionModel().select(dashboardTab);
+    }
+
+    @FXML
     void showEmployeeView(ActionEvent event) {
-        employeePane.setVisible(true);
-        pcPane.setVisible(false);
+        tabPane.getSelectionModel().select(employeesTab);
     }
 
     @FXML
     void showPcView(ActionEvent event) {
-        employeePane.setVisible(false);
-        pcPane.setVisible(true);
+        tabPane.getSelectionModel().select(computersTab);
     }
 
     @FXML
@@ -115,15 +133,15 @@ public class MainController {
     @FXML
     void employeeAddButton(ActionEvent event) {
         Stage popupStage = new Stage();
-        popupStage.setTitle("Dolgozó hozzáadása");
+        popupStage.setTitle("Add Employee");
 
-        Label nameLabel = new Label("Név:");
+        Label nameLabel = new Label("Name:");
         TextField nameField = new TextField();
 
-        Label jobLabel = new Label("Beosztása:");
+        Label jobLabel = new Label("Job Title:");
         TextField jobField = new TextField();
 
-        Button addButton = new Button("Hozzáad");
+        Button addButton = new Button("Add");
         addButton.setOnAction(e -> {
             String name = nameField.getText();
             String job = jobField.getText();
@@ -131,7 +149,7 @@ public class MainController {
             if (name.isEmpty() || job.isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setHeaderText(null);
-                alert.setContentText("Töltse ki a mezőket");
+                alert.setContentText("Please fill in the fields");
                 alert.showAndWait();
             } else {
                 sqlQuery.addEmployee(name, job);
@@ -160,18 +178,18 @@ public class MainController {
     @FXML
     void pcAdd(ActionEvent event) {
         Stage popupStage = new Stage();
-        popupStage.setTitle("PC hozzáadása");
+        popupStage.setTitle("Add PC");
 
-        Label brandLabel = new Label("Márka:");
+        Label brandLabel = new Label("Brand:");
         TextField brandField = new TextField();
 
-        Label versionLabel = new Label("Verzió:");
+        Label versionLabel = new Label("Version:");
         TextField versionField = new TextField();
 
-        Label ownerLabel = new Label("Tulajdonos:");
+        Label ownerLabel = new Label("Owner:");
         TextField ownerField = new TextField();
 
-        Button addButton = new Button("PC hozzáadása");
+        Button addButton = new Button("Add");
         addButton.setMaxWidth(Double.MAX_VALUE);
 
         Runnable addPeripheral = () -> {
@@ -182,7 +200,7 @@ public class MainController {
             if (brand.isEmpty() || version.isEmpty() || owner.isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setHeaderText(null);
-                alert.setContentText("Töltse ki a mezőket");
+                alert.setContentText("Please fill in the fields");
                 alert.showAndWait();
             } else {
                 sqlQuery.addPC(brand, version, owner);

@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 
 public class Assets {
     public static final Image APP_LOGO = loadImage("/org/example/images/logo.png");
+    public static final Image DASHBOARD = loadImage("/org/example/images/dashboard_icon.png");
     public static final Image USER = loadImage("/org/example/images/user_icon.png");
     public static final Image COMPUTER = loadImage("/org/example/images/computer_icon.png");
     public static final Image PERIPHERAL = loadImage("/org/example/images/peripheral_icon.png");

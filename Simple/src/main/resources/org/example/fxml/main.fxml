@@ -11,8 +11,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="950.0" styleClass="root" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" styleClass="root" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainController">
     <children>
 
         <!-- Lentory Header -->
@@ -30,7 +32,8 @@
             </children>
         </AnchorPane>
 
-        <TabPane side="LEFT"
+        <TabPane fx:id="tabPane"
+                 side="LEFT"
                  prefHeight="550.0"
                  prefWidth="950.0"
                  tabClosingPolicy="UNAVAILABLE"
@@ -40,7 +43,14 @@
                  AnchorPane.topAnchor="70.0">
             <tabs>
 
-                <Tab text="Dashboard">
+                <Tab fx:id="dashboardTab">
+                    <graphic>
+                        <HBox alignment="CENTER">
+                            <ImageView fx:id="dashboardIcon" fitWidth="40" fitHeight="40"/>
+                            <Label text="Dashboard" styleClass="tab-label"/>
+                        </HBox>
+                    </graphic>
+
                     <content>
                         <AnchorPane styleClass="tab-content-area">
 
@@ -106,36 +116,43 @@
                     </content>
                 </Tab>
 
-                <Tab text="Employees">
+                <Tab fx:id="employeesTab">
+                    <graphic>
+                        <HBox alignment="CENTER">
+                            <ImageView fx:id="tabpaneEmployeeIcon" fitWidth="40" fitHeight="40"/>
+                            <Label text="Employees" styleClass="tab-label"/>
+                        </HBox>
+                    </graphic>
+
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-content-area">
                             <children>
                                 <Label layoutX="20.0" layoutY="29.0" styleClass="header-label" text="ID">
                                     <font><Font name="System Bold" size="16.0" /></font>
                                 </Label>
-                                <Label layoutX="181.0" layoutY="29.0" styleClass="header-label" text="Név">
+                                <Label layoutX="181.0" layoutY="29.0" styleClass="header-label" text="Name">
                                     <font><Font name="System Bold" size="16.0" /></font>
                                 </Label>
-                                <Label layoutX="352.0" layoutY="40.0" styleClass="header-label" text="Munkakör">
+                                <Label layoutX="352.0" layoutY="40.0" styleClass="header-label" text="Job Title">
                                     <font><Font name="System Bold" size="16.0" /></font>
                                 </Label>
 
-                                <TextField fx:id="idField" layoutX="20.0" layoutY="65.0" prefHeight="35.0" prefWidth="140.0" promptText="Keresés ID alapján" />
-                                <TextField fx:id="nameField" layoutX="181.0" layoutY="65.0" prefHeight="35.0" prefWidth="140.0" promptText="Keresés Név alapján" />
-                                <TextField fx:id="jobTitleField" layoutX="352.0" layoutY="65.0" prefHeight="35.0" prefWidth="140.0" promptText="Keresés Munkakör alapján" />
+                                <TextField fx:id="idField" layoutX="20.0" layoutY="65.0" prefHeight="35.0" prefWidth="140.0" promptText="Search by ID" />
+                                <TextField fx:id="nameField" layoutX="181.0" layoutY="65.0" prefHeight="35.0" prefWidth="140.0" promptText="Search by Name" />
+                                <TextField fx:id="jobTitleField" layoutX="352.0" layoutY="65.0" prefHeight="35.0" prefWidth="140.0" promptText="Search by Job Title" />
 
-                                <Button layoutX="620.0" layoutY="60.0" mnemonicParsing="false" onAction="#employeeSearchButton" prefHeight="40.0" prefWidth="110.0" text="Keresés">
+                                <Button layoutX="620.0" layoutY="60.0" mnemonicParsing="false" onAction="#employeeSearchButton" prefHeight="40.0" prefWidth="110.0" text="Search">
                                     <font><Font name="System Bold" size="14.0" /></font>
                                 </Button>
-                                <Button layoutX="570.0" layoutY="130.0" mnemonicParsing="false" onAction="#employeeAddButton" prefHeight="40.0" prefWidth="160.0" styleClass="secondary-button" text="+ Dolgozó Hozzáadása">
+                                <Button layoutX="570.0" layoutY="130.0" mnemonicParsing="false" onAction="#employeeAddButton" prefHeight="40.0" prefWidth="160.0" styleClass="secondary-button" text="+ Add Employee">
                                     <font><Font name="System Bold" size="14.0" /></font>
                                 </Button>
 
                                 <TableView fx:id="employeeTable" layoutX="31.0" layoutY="132.0" prefHeight="380.0" prefWidth="520.0">
                                     <columns>
                                         <TableColumn fx:id="colEmpId" prefWidth="75.0" text="ID" />
-                                        <TableColumn fx:id="colEmpName" prefWidth="180.0" text="Név" />
-                                        <TableColumn fx:id="colEmpJob" prefWidth="240.0" text="Munkakör" />
+                                        <TableColumn fx:id="colEmpName" prefWidth="180.0" text="Name" />
+                                        <TableColumn fx:id="colEmpJob" prefWidth="240.0" text="Job Title" />
                                     </columns>
                                 </TableView>
 
@@ -145,41 +162,48 @@
                     </content>
                 </Tab>
 
-                <Tab text="Computers">
+                <Tab fx:id="computersTab">
+                    <graphic>
+                        <HBox alignment="CENTER">
+                            <ImageView fx:id="tabpaneComputerIcon" fitWidth="40" fitHeight="40"/>
+                            <Label text="Computers" styleClass="tab-label"/>
+                        </HBox>
+                    </graphic>
+
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-content-area">
                             <children>
                                 <Label layoutX="25.0" layoutY="10.0" styleClass="header-label" text="PC_ID">
                                     <font><Font name="System Bold" size="16.0" /></font>
                                 </Label>
-                                <Label layoutX="173.0" layoutY="10.0" styleClass="header-label" text="Márka">
+                                <Label layoutX="173.0" layoutY="10.0" styleClass="header-label" text="Brand">
                                     <font><Font name="System Bold" size="16.0" /></font>
                                 </Label>
-                                <Label layoutX="320.0" layoutY="10.0" styleClass="header-label" text="Verzió">
+                                <Label layoutX="320.0" layoutY="10.0" styleClass="header-label" text="Version">
                                     <font><Font name="System Bold" size="16.0" /></font>
                                 </Label>
-                                <Label layoutX="472.0" layoutY="10.0" styleClass="header-label" text="Tulajdonos">
+                                <Label layoutX="472.0" layoutY="10.0" styleClass="header-label" text="Owner">
                                     <font><Font name="System Bold" size="16.0" /></font>
                                 </Label>
 
-                                <TextField fx:id="pcIDfield" layoutX="25.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Keresés PC-ID alapján" />
-                                <TextField fx:id="brandfield" layoutX="173.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Keresés Márka alapján"/>
-                                <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Keresés Verzió alapján"/>
-                                <TextField fx:id="ownerfield" layoutX="472.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Keresés Tulajdonos alapján" />
+                                <TextField fx:id="pcIDfield" layoutX="25.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Search by PC ID" />
+                                <TextField fx:id="brandfield" layoutX="173.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Search by Brand"/>
+                                <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Search by Version"/>
+                                <TextField fx:id="ownerfield" layoutX="472.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Search by Owner" />
 
-                                <Button layoutX="633.0" layoutY="30.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" prefHeight="40.0" prefWidth="110.0" text="Keresés">
+                                <Button layoutX="633.0" layoutY="30.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" prefHeight="40.0" prefWidth="110.0" text="Search">
                                     <font><Font name="System Bold" size="14.0" /></font>
                                 </Button>
-                                <Button layoutX="573.0" layoutY="105.0" mnemonicParsing="false" onAction="#pcAdd" prefHeight="40.0" prefWidth="170.0" styleClass="secondary-button" text="+ PC Hozzáadása">
+                                <Button layoutX="573.0" layoutY="105.0" mnemonicParsing="false" onAction="#pcAdd" prefHeight="40.0" prefWidth="170.0" styleClass="secondary-button" text="+ Add PC">
                                     <font><Font name="System Bold" size="14.0" /></font>
                                 </Button>
 
                                 <TableView fx:id="pcTable" layoutX="37.0" layoutY="105.0" prefHeight="400.0" prefWidth="520.0">
                                     <columns>
                                         <TableColumn fx:id="colPcId" prefWidth="60.0" text="ID" />
-                                        <TableColumn fx:id="colPcBrand" prefWidth="120.0" text="Márka" />
-                                        <TableColumn fx:id="colPcVersion" prefWidth="120.0" text="Verzió" />
-                                        <TableColumn fx:id="colPcOwner" prefWidth="200.0" text="Tulajdonos" />
+                                        <TableColumn fx:id="colPcBrand" prefWidth="120.0" text="Brand" />
+                                        <TableColumn fx:id="colPcVersion" prefWidth="120.0" text="Version" />
+                                        <TableColumn fx:id="colPcOwner" prefWidth="200.0" text="Owner" />
                                     </columns>
                                 </TableView>
 
