@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.example.util.Assets;
 
 public class MainController {
     SQLQuery sqlQuery = new SQLQuery();
@@ -57,15 +58,26 @@ public class MainController {
     @FXML
     private AnchorPane pcPane;
 
+    @FXML private ImageView logoView;
     @FXML private ImageView employeeIcon;
     @FXML private ImageView computerIcon;
     @FXML private ImageView peripheralIcon;
+    @FXML private ImageView actionAddComputerIcon;
     @FXML private ImageView actionAddEmployeeIcon;
-    @FXML private ImageView actionImportCsvIcon;
-    @FXML private ImageView actionAssignDevicesIcon;
+    @FXML private ImageView actionDownloadIcon;
+    @FXML private ImageView actionAssignDeviceIcon;
 
     @FXML
     private void initialize() {
+        logoView.setImage(Assets.APP_LOGO);
+        employeeIcon.setImage(Assets.USER);
+        computerIcon.setImage(Assets.COMPUTER);
+        peripheralIcon.setImage(Assets.PERIPHERAL);
+        actionAddComputerIcon.setImage(Assets.PLUS);
+        actionAddEmployeeIcon.setImage(Assets.USER_PLUS);
+        actionDownloadIcon.setImage(Assets.DOWNLOAD);
+        actionAssignDeviceIcon.setImage(Assets.ASSIGNDEVICE);
+
         colEmpId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colEmpName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colEmpJob.setCellValueFactory(new PropertyValueFactory<>("jobTitle"));
