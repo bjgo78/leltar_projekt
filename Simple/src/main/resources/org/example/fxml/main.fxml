@@ -45,8 +45,8 @@
 
                 <Tab fx:id="dashboardTab">
                     <graphic>
-                        <HBox alignment="CENTER">
-                            <ImageView fx:id="dashboardIcon" fitWidth="40" fitHeight="40"/>
+                        <HBox alignment="CENTER_LEFT" styleClass="tab-graphic">
+                            <ImageView fx:id="dashboardIcon" fitWidth="30" fitHeight="30"/>
                             <Label text="Dashboard" styleClass="tab-label"/>
                         </HBox>
                     </graphic>
@@ -118,8 +118,8 @@
 
                 <Tab fx:id="employeesTab">
                     <graphic>
-                        <HBox alignment="CENTER">
-                            <ImageView fx:id="tabpaneEmployeeIcon" fitWidth="40" fitHeight="40"/>
+                        <HBox alignment="CENTER_LEFT" styleClass="tab-graphic">
+                            <ImageView fx:id="tabpaneEmployeesIcon" fitWidth="30" fitHeight="30"/>
                             <Label text="Employees" styleClass="tab-label"/>
                         </HBox>
                     </graphic>
@@ -164,8 +164,8 @@
 
                 <Tab fx:id="computersTab">
                     <graphic>
-                        <HBox alignment="CENTER">
-                            <ImageView fx:id="tabpaneComputerIcon" fitWidth="40" fitHeight="40"/>
+                        <HBox alignment="CENTER_LEFT" styleClass="tab-graphic">
+                            <ImageView fx:id="tabpaneComputerIcon" fitWidth="30" fitHeight="30"/>
                             <Label text="Computers" styleClass="tab-label"/>
                         </HBox>
                     </graphic>

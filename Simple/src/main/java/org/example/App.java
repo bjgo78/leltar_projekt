@@ -31,7 +31,7 @@ public class App extends Application {
             FXMLLoader mainLoader = new FXMLLoader(App.class.getResource("fxml/main.fxml"));
             mainScene = new Scene(mainLoader.load());
             primaryStage.setScene(mainScene);
-            primaryStage.setTitle("Lentory 0.0.2");
+            primaryStage.setTitle("Lentory 0.2");
             primaryStage.show();
         } else {
             System.exit(0);

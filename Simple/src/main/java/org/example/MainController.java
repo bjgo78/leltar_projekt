@@ -62,7 +62,7 @@ public class MainController {
 
     @FXML private ImageView logoView;
     @FXML private ImageView dashboardIcon;
-    @FXML private ImageView tabpaneEmployeeIcon;
+    @FXML private ImageView tabpaneEmployeesIcon;
     @FXML private ImageView tabpaneComputerIcon;
     @FXML private ImageView employeeIcon;
     @FXML private ImageView computerIcon;
@@ -82,14 +82,14 @@ public class MainController {
 
         logoView.setImage(Assets.APP_LOGO);
         dashboardIcon.setImage(Assets.DASHBOARD);
-        tabpaneEmployeeIcon.setImage(Assets.USER);
+        tabpaneEmployeesIcon.setImage(Assets.EMPLOYEES);
         tabpaneComputerIcon.setImage(Assets.COMPUTER);
 
-        employeeIcon.setImage(Assets.USER);
+        employeeIcon.setImage(Assets.EMPLOYEE);
         computerIcon.setImage(Assets.COMPUTER);
         peripheralIcon.setImage(Assets.PERIPHERAL);
         actionAddComputerIcon.setImage(Assets.PLUS);
-        actionAddEmployeeIcon.setImage(Assets.USER_PLUS);
+        actionAddEmployeeIcon.setImage(Assets.EMPLOYEE_PLUS);
         actionDownloadIcon.setImage(Assets.DOWNLOAD);
         actionAssignDeviceIcon.setImage(Assets.ASSIGNDEVICE);
 

@@ -13,6 +13,12 @@
     -fx-font-size: 14px;
 }
 
+.tab-graphic {
+    -fx-spacing: 5;
+    -fx-padding: 5;
+    -fx-alignment: center-left;
+}
+
 .header-title {
     -fx-font-size: 28px;
     -fx-font-weight: bold;
@@ -137,9 +143,17 @@
 }
 
 .header-label {
-    -fx-text-fill: #00d2d3;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 24px;
     -fx-font-weight: bold;
-    -fx-font-size: 14px;
+    -fx-padding: 5 0 5 0;
+}
+
+.subheader-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 0 5 0;
 }
 
 .label {
