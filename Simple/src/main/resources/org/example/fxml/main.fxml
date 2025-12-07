@@ -15,6 +15,40 @@
         <TabPane side="LEFT" prefHeight="550.0" prefWidth="950.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
 
+                <Tab text="Dashboard">
+                    <content>
+                        <AnchorPane prefHeight="550.0" prefWidth="950.0" styleClass="tab-content-area">
+                            <children>
+                                <Label text="Üdv újra, admin!"
+                                       layoutX="30" layoutY="30"
+                                       styleClass="header-label">
+                                    <font>
+                                        <Font name="System Bold" size="24"/>
+                                    </font>
+                                </Label>
+
+                                <Label text="Statisztikák helye"
+                                       layoutX="30" layoutY="240"
+                                       style="-fx-text-fill: gray;" />
+
+                                <Label text="Gyors műveletek:" layoutX="30" layoutY="80">
+                                    <font><Font size="18"/></font>
+                                </Label>
+
+                                <Button text="Dolgozó hozzáadása"
+                                        layoutX="30" layoutY="120"
+                                        prefWidth="200" prefHeight="40"
+                                        onAction="#employeeAddButton"/>
+
+                                <Button text="PC hozzáadása"
+                                        layoutX="30" layoutY="170"
+                                        prefWidth="200" prefHeight="40"
+                                        onAction="#pcAdd"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
                 <Tab text="Dolgozó Kereső">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-content-area">

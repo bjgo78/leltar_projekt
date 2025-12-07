@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -55,6 +56,13 @@ public class MainController {
     private AnchorPane employeePane;
     @FXML
     private AnchorPane pcPane;
+
+    @FXML private ImageView employeeIcon;
+    @FXML private ImageView computerIcon;
+    @FXML private ImageView peripheralIcon;
+    @FXML private ImageView actionAddEmployeeIcon;
+    @FXML private ImageView actionImportCsvIcon;
+    @FXML private ImageView actionAssignDevicesIcon;
 
     @FXML
     private void initialize() {

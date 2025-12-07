@@ -6,8 +6,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.example.util.Assets;
 
-import java.io.IOException;
-
 public class LoginController {
 
     @FXML private TextField usernameField;
