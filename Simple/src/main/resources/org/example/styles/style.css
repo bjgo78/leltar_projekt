@@ -1,3 +1,80 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #1A2E5A, #243B66);
+    -fx-font-family: 'Inter';
+}
+
+.pop-up-root {
+    -fx-background-color: #050A18;
+    -fx-padding: 20;
+}
+.pop-up-root .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.header-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.stat-tile {
+    -fx-background-color: rgba(255,255,255,0.15);
+    -fx-background-radius: 12;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 20, 0, 0, 5);
+}
+
+.stat-number {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.stat-label {
+    -fx-text-fill: rgba(255,255,255,0.7);
+    -fx-font-size: 14;
+}
+
+.action-tile {
+    -fx-background-color: rgba(255,255,255,0.12);
+    -fx-background-radius: 12;
+    -fx-padding: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 18, 0, 0, 5);
+    -fx-cursor: hand;
+}
+
+.action-tile:hover {
+    -fx-background-color: rgba(255,255,255,0.18);
+}
+
+.action-title {
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.action-desc {
+    -fx-text-fill: rgba(255,255,255,0.7);
+    -fx-font-size: 12;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-border-color: rgba(255,255,255,0.15);
+}
+
+.tab {
+    -fx-background-color: transparent;
+}
+
+.tab:selected {
+    -fx-background-color: rgba(255,255,255,0.18);
+    -fx-border-color: #00c6ff;
+}
+
+
 .button{
     -fx-background-color: #357ae8;
     -fx-text-fill: white;
@@ -14,20 +91,6 @@
 .button:pressed {
     -fx-background-color: #2f64c9;
 
-}
-.root {
-    -fx-background-color: #050A18;
-    -fx-font-family: 'Segoe UI', sans-serif;
-}
-
-.pop-up-root {
-    -fx-background-color: #050A18;
-    -fx-padding: 20;
-}
-.pop-up-root .label {
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-font-size: 14px;
 }
 
 .tab-pane {

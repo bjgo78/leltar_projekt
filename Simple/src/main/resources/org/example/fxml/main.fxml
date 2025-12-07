@@ -4,52 +4,109 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="950.0" styleClass="root" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainController">
     <children>
-        <TabPane side="LEFT" prefHeight="550.0" prefWidth="950.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+        <!-- Lentory Header -->
+        <AnchorPane prefHeight="70" prefWidth="950">
+            <children>
+                <ImageView fx:id="logoView"
+                           layoutX="20" layoutY="15"
+                           fitWidth="45" fitHeight="45"
+                           opacity="0.95"
+                           preserveRatio="true"/>
+
+                <Label text="Lentory"
+                       layoutX="70" layoutY="20"
+                       styleClass="header-title"/>
+            </children>
+        </AnchorPane>
+
+        <TabPane side="LEFT"
+                 prefHeight="550.0"
+                 prefWidth="950.0"
+                 tabClosingPolicy="UNAVAILABLE"
+                 AnchorPane.bottomAnchor="0.0"
+                 AnchorPane.leftAnchor="0.0"
+                 AnchorPane.rightAnchor="0.0"
+                 AnchorPane.topAnchor="70.0">
             <tabs>
 
                 <Tab text="Dashboard">
                     <content>
-                        <AnchorPane prefHeight="550.0" prefWidth="950.0" styleClass="tab-content-area">
-                            <children>
-                                <Label text="Üdv újra, admin!"
-                                       layoutX="30" layoutY="30"
-                                       styleClass="header-label">
-                                    <font>
-                                        <Font name="System Bold" size="24"/>
-                                    </font>
-                                </Label>
+                        <AnchorPane styleClass="tab-content-area">
 
-                                <Label text="Statisztikák helye"
-                                       layoutX="30" layoutY="240"
-                                       style="-fx-text-fill: gray;" />
+                            <!-- Üdvözlés -->
+                            <Label text="Welcome back, admin!" layoutX="20" layoutY="20" styleClass="header-label">
+                                <font>
+                                    <Font name="System Bold" size="24"/>
+                                </font>
+                            </Label>
 
-                                <Label text="Gyors műveletek:" layoutX="30" layoutY="80">
-                                    <font><Font size="18"/></font>
-                                </Label>
+                            <!-- Statisztikák csempék -->
+                            <AnchorPane layoutX="20" layoutY="70">
+                                <AnchorPane prefWidth="200" prefHeight="100" styleClass="stat-tile" layoutX="0" layoutY="0">
+                                    <ImageView fx:id="employeeIcon" fitWidth="40" fitHeight="40" layoutX="10" layoutY="30"/>
+                                    <Label text="120" layoutX="60" layoutY="20" styleClass="stat-number"/>
+                                    <Label text="Total Employees" layoutX="60" layoutY="50" styleClass="stat-label"/>
+                                </AnchorPane>
 
-                                <Button text="Dolgozó hozzáadása"
-                                        layoutX="30" layoutY="120"
-                                        prefWidth="200" prefHeight="40"
-                                        onAction="#employeeAddButton"/>
+                                <AnchorPane prefWidth="200" prefHeight="100" styleClass="stat-tile" layoutX="220" layoutY="0">
+                                    <ImageView fx:id="computerIcon" fitWidth="40" fitHeight="40" layoutX="10" layoutY="30"/>
+                                    <Label text="35" layoutX="60" layoutY="20" styleClass="stat-number"/>
+                                    <Label text="Total Computers" layoutX="60" layoutY="50" styleClass="stat-label"/>
+                                </AnchorPane>
 
-                                <Button text="PC hozzáadása"
-                                        layoutX="30" layoutY="170"
-                                        prefWidth="200" prefHeight="40"
-                                        onAction="#pcAdd"/>
-                            </children>
+                                <AnchorPane prefWidth="200" prefHeight="100" styleClass="stat-tile" layoutX="440" layoutY="0">
+                                    <ImageView fx:id="peripheralIcon" fitWidth="40" fitHeight="40" layoutX="10" layoutY="30"/>
+                                    <Label text="50" layoutX="60" layoutY="20" styleClass="stat-number"/>
+                                    <Label text="Total Peripherals" layoutX="60" layoutY="50" styleClass="stat-label"/>
+                                </AnchorPane>
+                            </AnchorPane>
+
+                            <!-- Quick Actions -->
+                            <Label text="Quick Actions:" layoutX="20" layoutY="200" styleClass="subheader-label"/>
+
+                            <!-- Quick Actions Grid -->
+                            <GridPane layoutX="20" layoutY="240" hgap="25" vgap="20">
+
+                                <AnchorPane prefWidth="250" prefHeight="90" styleClass="action-tile" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                    <ImageView fx:id="actionAddEmployeeIcon" fitWidth="30" fitHeight="30" layoutX="10" layoutY="30"/>
+                                    <Label text="Add Employee" layoutX="55" layoutY="15" styleClass="action-title"/>
+                                    <Label text="Register a new team member" layoutX="55" layoutY="40" styleClass="action-desc"/>
+                                </AnchorPane>
+
+                                <AnchorPane prefWidth="250" prefHeight="90" styleClass="action-tile" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                                    <ImageView fx:id="actionAddComputerIcon" fitWidth="30" fitHeight="30" layoutX="10" layoutY="30"/>
+                                    <Label text="Add Computer" layoutX="55" layoutY="15" styleClass="action-title"/>
+                                    <Label text="Register a new computer device" layoutX="55" layoutY="40" styleClass="action-desc"/>
+                                </AnchorPane>
+
+                                <AnchorPane prefWidth="250" prefHeight="90" styleClass="action-tile" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                                    <ImageView fx:id="actionDownloadIcon" fitWidth="30" fitHeight="30" layoutX="10" layoutY="30"/>
+                                    <Label text="Export CSV" layoutX="55" layoutY="15" styleClass="action-title"/>
+                                    <Label text="Export data to spreadsheet" layoutX="55" layoutY="40" styleClass="action-desc"/>
+                                </AnchorPane>
+
+                                <AnchorPane prefWidth="250" prefHeight="90" styleClass="action-tile" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                                    <ImageView fx:id="actionAssignDeviceIcon" fitWidth="30" fitHeight="30" layoutX="10" layoutY="30"/>
+                                    <Label text="Assign Devices" layoutX="55" layoutY="15" styleClass="action-title"/>
+                                    <Label text="Link devices to employees" layoutX="55" layoutY="40" styleClass="action-desc"/>
+                                </AnchorPane>
+                            </GridPane>
                         </AnchorPane>
                     </content>
                 </Tab>
 
-                <Tab text="Dolgozó Kereső">
+                <Tab text="Employees">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-content-area">
                             <children>
@@ -88,7 +145,7 @@
                     </content>
                 </Tab>
 
-                <Tab text="PC Kereső">
+                <Tab text="Computers">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-content-area">
                             <children>
