@@ -127,7 +127,7 @@ public class MainController {
 
         Scene scene = new Scene(layout, 300, 280);
         try {
-            //scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("styles/style.css").toExternalForm());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -183,7 +183,7 @@ public class MainController {
 
         Scene scene = new Scene(layout, 320, 400);
         try {
-            //scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("styles/style.css").toExternalForm());
         } catch (Exception e) {
             e.printStackTrace();
         }
