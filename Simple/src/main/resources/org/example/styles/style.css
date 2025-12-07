@@ -26,8 +26,8 @@
 }
 
 .tab-pane {
-    -fx-tab-min-width: 40px;
-    -fx-tab-max-width: 40px;
+    -fx-tab-min-width: 120px;
+    -fx-tab-max-width: 120px;
     -fx-tab-min-height: 150px;
     -fx-tab-max-height: 150px;
 }
@@ -43,7 +43,8 @@
     -fx-border-width: 0 0 0 3;
     -fx-border-color: transparent;
     -fx-padding: 0;
-    -fx-alignment: CENTER;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 5;
 }
 
 .tab:selected {
@@ -122,9 +123,13 @@
 }
 
 .table-view .column-header-background {
-    -fx-background-color: #0b1221;
-    -fx-border-width: 0 0 1 0;
+    -fx-background-color: #050A18;
+    -fx-border-width: 0 0 2 0;
     -fx-border-color: #2b3850;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
 
 .table-view .column-header .label {
