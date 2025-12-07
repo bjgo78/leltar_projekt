@@ -1,66 +1,97 @@
 package org.example;
 
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 
 public class MainController {
     SQLQuery sqlQuery = new SQLQuery();
 
     @FXML
-    private void initialize() {
-        Tooltip tooltip1 = new Tooltip("A megfelelő mezőbe ird be az adataid majd KERESÉS gomb.");
-        Tooltip tooltip2= new Tooltip("A megfelelő mezőbe ird be a PC tulajdonságait majd KERESÉS gomb.");
+    private TableView<Employee> employeeTable;
+    @FXML
+    private TableColumn<Employee, Integer> colEmpId;
+    @FXML
+    private TableColumn<Employee, String> colEmpName;
+    @FXML
+    private TableColumn<Employee, String> colEmpJob;
 
-        Tooltip.install(infoLabel1, tooltip1);
-        Tooltip.install(infoLabel2, tooltip2);
-    }
+    @FXML
+    private TableView<PC> pcTable;
+    @FXML
+    private TableColumn<PC, Integer> colPcId;
+    @FXML
+    private TableColumn<PC, String> colPcBrand;
+    @FXML
+    private TableColumn<PC, String> colPcVersion;
+    @FXML
+    private TableColumn<PC, String> colPcOwner;
 
     @FXML
     private TextField jobTitleField;
-
     @FXML
     private TextField nameField;
-
     @FXML
     private TextField idField;
-
     @FXML
     private TextField brandfield;
-
     @FXML
     private TextField ownerfield;
-
     @FXML
     private TextField pcIDfield;
-
     @FXML
     private TextField versionfield;
 
     @FXML
-    private Label infoLabel1;
+    private AnchorPane employeePane;
+    @FXML
+    private AnchorPane pcPane;
 
     @FXML
-    private Label infoLabel2;
+    private void initialize() {
+        colEmpId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colEmpName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colEmpJob.setCellValueFactory(new PropertyValueFactory<>("jobTitle"));
 
+        colPcId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colPcBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        colPcVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
+        colPcOwner.setCellValueFactory(new PropertyValueFactory<>("ownerName"));
+    }
 
+    @FXML
+    void showEmployeeView(ActionEvent event) {
+        employeePane.setVisible(true);
+        pcPane.setVisible(false);
+    }
+
+    @FXML
+    void showPcView(ActionEvent event) {
+        employeePane.setVisible(false);
+        pcPane.setVisible(true);
+    }
 
     @FXML
     void PeripherialSearchButton() {
-        System.out.println(sqlQuery.searchPc(pcIDfield.getText(), brandfield.getText(), versionfield.getText(),ownerfield.getText()));
+        ObservableList<PC> data = sqlQuery.searchPc(pcIDfield.getText(), brandfield.getText(), versionfield.getText(), ownerfield.getText());
+        pcTable.setItems(data);
     }
 
     @FXML
     void employeeSearchButton() {
-        System.out.println(sqlQuery.searchEmployee(idField.getText(), nameField.getText(), jobTitleField.getText()));
+        ObservableList<Employee> data = sqlQuery.searchEmployee(idField.getText(), nameField.getText(), jobTitleField.getText());
+        employeeTable.setItems(data);
     }
+
     @FXML
     void employeeAddButton(ActionEvent event) {
         Stage popupStage = new Stage();
@@ -83,28 +114,29 @@ public class MainController {
                 alert.setContentText("Töltse ki a mezőket");
                 alert.showAndWait();
             } else {
-                //System.out.println(name +" "+ job);
                 sqlQuery.addEmployee(name, job);
-
                 popupStage.close();
             }
         });
 
-
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(15));
+        layout.getStyleClass().add("pop-up-root");
         layout.getChildren().addAll(nameLabel, nameField, jobLabel, jobField, addButton);
         layout.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(layout, 300, 220);
-
-        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        Scene scene = new Scene(layout, 300, 280);
+        try {
+            //scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         popupStage.setScene(scene);
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.showAndWait();
-
     }
+
     @FXML
     void pcAdd(ActionEvent event) {
         Stage popupStage = new Stage();
@@ -120,6 +152,7 @@ public class MainController {
         TextField ownerField = new TextField();
 
         Button addButton = new Button("PC hozzáadása");
+        addButton.setMaxWidth(Double.MAX_VALUE);
 
         Runnable addPeripheral = () -> {
             String brand = brandField.getText().trim();
@@ -132,7 +165,6 @@ public class MainController {
                 alert.setContentText("Töltse ki a mezőket");
                 alert.showAndWait();
             } else {
-                //System.out.println(brand + " " + version + " " + owner);
                 sqlQuery.addPC(brand, version, owner);
                 popupStage.close();
             }
@@ -145,22 +177,19 @@ public class MainController {
 
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(15));
-        layout.getChildren().addAll(
-                brandLabel, brandField,
-                versionLabel, versionField,
-                ownerLabel, ownerField,
-                addButton
-        );
+        layout.getStyleClass().add("pop-up-root");
+        layout.getChildren().addAll(brandLabel, brandField, versionLabel, versionField, ownerLabel, ownerField, new Label(""), addButton);
         layout.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(layout, 320, 350);
-        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        Scene scene = new Scene(layout, 320, 400);
+        try {
+            //scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         popupStage.setScene(scene);
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.showAndWait();
-
     }
-
-
 }
