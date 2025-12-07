@@ -71,10 +71,10 @@
                                     <font><Font name="System Bold" size="16.0" /></font>
                                 </Label>
 
-                                <TextField fx:id="pcIDfield" layoutX="25.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" />
-                                <TextField fx:id="brandfield" layoutX="173.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" />
-                                <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" />
-                                <TextField fx:id="ownerfield" layoutX="472.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" />
+                                <TextField fx:id="pcIDfield" layoutX="25.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Keresés PC-ID alapján" />
+                                <TextField fx:id="brandfield" layoutX="173.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Keresés Márka alapján"/>
+                                <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Keresés Verzió alapján"/>
+                                <TextField fx:id="ownerfield" layoutX="472.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Keresés Tulajdonos alapján" />
 
                                 <Button layoutX="633.0" layoutY="30.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" prefHeight="40.0" prefWidth="110.0" text="Keresés">
                                     <font><Font name="System Bold" size="14.0" /></font>
