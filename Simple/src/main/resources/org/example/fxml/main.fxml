@@ -93,7 +93,7 @@
                                 <AnchorPane prefWidth="250" prefHeight="90" styleClass="action-tile" GridPane.rowIndex="1" GridPane.columnIndex="0">
                                     <ImageView fx:id="actionDownloadIcon" fitWidth="30" fitHeight="30" layoutX="10" layoutY="30"/>
                                     <Label text="Export CSV" layoutX="55" layoutY="15" styleClass="action-title"/>
-                                    <Label text="Bulk export data to spreadsheet" layoutX="55" layoutY="40" styleClass="action-desc"/>
+                                    <Label text="Export data to spreadsheet" layoutX="55" layoutY="40" styleClass="action-desc"/>
                                 </AnchorPane>
 
                                 <AnchorPane prefWidth="250" prefHeight="90" styleClass="action-tile" GridPane.rowIndex="1" GridPane.columnIndex="1">
