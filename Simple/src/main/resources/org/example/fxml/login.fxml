@@ -49,7 +49,7 @@
                     onAction="#handleSignIn"
                     styleClass="button"/>
 
-            <Label text="v0.0.2" styleClass="version"/>
+            <Label text="v0.7.9" styleClass="version"/>
         </VBox>
     </children>
 </AnchorPane>

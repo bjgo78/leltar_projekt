@@ -1,5 +1,5 @@
 .root {
-    -fx-background-color: linear-gradient(to bottom right, #1A2E5A, #243B66);
+    -fx-background-color: linear-gradient(to bottom right, #10244F, #13141f);
     -fx-font-family: 'Inter';
 }
 
@@ -25,11 +25,24 @@
     -fx-text-fill: white;
 }
 
-.stat-tile {
-    -fx-background-color: rgba(255,255,255,0.15);
-    -fx-background-radius: 12;
+.stat-tile, .action-tile {
+    -fx-background-color: rgba(255, 255, 255, 0.10); /* finom átlátszóság */
+    -fx-background-radius: 15;
     -fx-padding: 15;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 20, 0, 0, 5);
+
+    -fx-border-color: rgba(255, 255, 255, 0.35);
+    -fx-border-width: 1.2;
+    -fx-border-radius: 15;
+
+    -fx-background-insets: 0, 1, 2, 3;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.10), 8, 0.1, 0, 0);
+}
+
+.action-tile:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.17);
+    -fx-border-color: rgba(255, 255, 255, 0.55);
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.25), 12, 0.2, 0, 0);
+    -fx-cursor: hand;
 }
 
 .stat-number {
@@ -41,18 +54,6 @@
 .stat-label {
     -fx-text-fill: rgba(255,255,255,0.7);
     -fx-font-size: 14;
-}
-
-.action-tile {
-    -fx-background-color: rgba(255,255,255,0.12);
-    -fx-background-radius: 12;
-    -fx-padding: 12;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 18, 0, 0, 5);
-    -fx-cursor: hand;
-}
-
-.action-tile:hover {
-    -fx-background-color: rgba(255,255,255,0.18);
 }
 
 .action-title {
@@ -107,9 +108,24 @@
 }
 
 .tab-pane .tab-header-area .tab-header-background {
-    -fx-background-color: #0b1221;
-    -fx-border-color: #2b3850;
-    -fx-border-width: 0 1 0 0;
+    -fx-background-color: linear-gradient(
+        to bottom,
+        rgba(10, 20, 45, 0.50),
+        rgba(25, 55, 110, 0.20)
+    );
+
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+
+    -fx-border-color: rgba(255,255,255,0.15);
+    -fx-border-width: 0 1px 0 0;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.30), 20, 0.15, 0, 0);
+}
+
+
+.tab:hover {
+    -fx-background-color: rgba(255,255,255,0.10);
 }
 
 .tab {
@@ -122,9 +138,9 @@
 }
 
 .tab:selected {
-    -fx-background-color: #152238;
-    -fx-border-color: #00d2d3;
+    -fx-background-color: rgba(255,255,255,0.15);
     -fx-border-width: 0 0 0 3;
+    -fx-border-color: #00d2d3;
 }
 
 .tab-label {
@@ -138,7 +154,15 @@
 }
 
 .tab-content-area {
-    -fx-background-color: #050A18;
+    -fx-background-color: radial-gradient(
+        focus-angle 0deg,
+        focus-distance 0%,
+        center 50% 50%,
+        radius 80%,
+        #10244F 0%,
+        #0b1221 60%,
+        #050A18 100%
+    );
     -fx-padding: 10px;
 }
 
