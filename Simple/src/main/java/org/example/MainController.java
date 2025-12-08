@@ -11,9 +11,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import org.example.util.Assets;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class MainController {
     SQLQuery sqlQuery = new SQLQuery();
@@ -316,6 +321,29 @@ public class MainController {
 
     @FXML
     void quickExportCSV(MouseEvent event) {
-        System.out.println(sqlQuery.exportCSV());
+        //System.out.println(sqlQuery.exportCSV());
+        saveCSV(dashboardTab.getTabPane().getScene().getWindow());
+
+    }
+    public void saveCSV(Window ownerWindow) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save CSV File");
+
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        File file = fileChooser.showSaveDialog(ownerWindow);
+
+        if (file != null) {
+            if (!file.getName().toLowerCase().endsWith(".csv")) {
+                file = new File(file.getAbsolutePath() + ".csv");
+            }
+
+            try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8)) {
+                writer.write(sqlQuery.exportCSV());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
