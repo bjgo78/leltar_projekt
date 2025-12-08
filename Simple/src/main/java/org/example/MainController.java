@@ -21,6 +21,10 @@ public class MainController {
     @FXML
     private Label employeeCount;
     @FXML
+    private Label pcCount;
+    @FXML
+    private Label peripheralCount;
+    @FXML
     private TableView<Employee> employeeTable;
     @FXML
     private TableColumn<Employee, Integer> colEmpId;
@@ -105,6 +109,8 @@ public class MainController {
         colPcVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
         colPcOwner.setCellValueFactory(new PropertyValueFactory<>("ownerName"));
         employeeCount.setText(String.valueOf(sqlQuery.getEmployeeCount()));
+        pcCount.setText(String.valueOf(sqlQuery.getPCCount()));
+        peripheralCount.setText(String.valueOf(sqlQuery.getPeripheralCount()));
     }
 
     @FXML

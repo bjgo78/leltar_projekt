@@ -58,13 +58,13 @@
 
                                 <AnchorPane layoutX="220" layoutY="0" prefHeight="100" prefWidth="200" styleClass="stat-tile">
                                     <ImageView fx:id="computerIcon" fitHeight="40" fitWidth="40" layoutX="10" layoutY="30" />
-                                    <Label layoutX="60" layoutY="20" styleClass="stat-number" text="35" />
+                                    <Label fx:id="pcCount" layoutX="60" layoutY="20" styleClass="stat-number" text="35" />
                                     <Label layoutX="60" layoutY="50" styleClass="stat-label" text="Total Computers" />
                                 </AnchorPane>
 
                                 <AnchorPane layoutX="440" layoutY="0" prefHeight="100" prefWidth="200" styleClass="stat-tile">
                                     <ImageView fx:id="peripheralIcon" fitHeight="40" fitWidth="40" layoutX="10" layoutY="30" />
-                                    <Label layoutX="60" layoutY="20" styleClass="stat-number" text="50" />
+                                    <Label fx:id="peripheralCount" layoutX="60" layoutY="20" styleClass="stat-number" text="50" />
                                     <Label layoutX="60" layoutY="50" styleClass="stat-label" text="Total Peripherals" />
                                 </AnchorPane>
                             </AnchorPane>
