@@ -55,7 +55,7 @@
                         <AnchorPane styleClass="tab-content-area">
 
                             <!-- Üdvözlés -->
-                            <Label text="Welcome back, admin!" layoutX="20" layoutY="20" styleClass="header-label">
+                            <Label text="Welcome back, admin!" layoutX="20" layoutY="20" styleClass="welcome-label">
                                 <font>
                                     <Font name="System Bold" size="24"/>
                                 </font>
@@ -133,7 +133,7 @@
                                 <Label layoutX="181.0" layoutY="29.0" styleClass="header-label" text="Name">
                                     <font><Font name="System Bold" size="16.0" /></font>
                                 </Label>
-                                <Label layoutX="352.0" layoutY="40.0" styleClass="header-label" text="Job Title">
+                                <Label layoutX="352.0" layoutY="29.0" styleClass="header-label" text="Job Title">
                                     <font><Font name="System Bold" size="16.0" /></font>
                                 </Label>
 
