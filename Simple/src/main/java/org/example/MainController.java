@@ -19,6 +19,8 @@ public class MainController {
     SQLQuery sqlQuery = new SQLQuery();
 
     @FXML
+    private Label employeeCount;
+    @FXML
     private TableView<Employee> employeeTable;
     @FXML
     private TableColumn<Employee, Integer> colEmpId;
@@ -102,6 +104,7 @@ public class MainController {
         colPcBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
         colPcVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
         colPcOwner.setCellValueFactory(new PropertyValueFactory<>("ownerName"));
+        employeeCount.setText(String.valueOf(sqlQuery.getEmployeeCount()));
     }
 
     @FXML

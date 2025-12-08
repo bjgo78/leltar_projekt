@@ -108,4 +108,22 @@ public class SQLQuery {
             }
     }
 
+    public int getEmployeeCount() {
+        int count = 0;
+        //SELECT COUNT(userid) FROM `employee`;
+        String query = "SELECT COUNT(userid) FROM employee;";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
 }

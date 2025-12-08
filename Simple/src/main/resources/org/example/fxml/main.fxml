@@ -52,7 +52,7 @@
                             <AnchorPane layoutX="20" layoutY="70">
                                 <AnchorPane layoutX="0" layoutY="0" prefHeight="100" prefWidth="200" styleClass="stat-tile">
                                     <ImageView fx:id="employeeIcon" fitHeight="40" fitWidth="40" layoutX="10" layoutY="30" />
-                                    <Label layoutX="60" layoutY="20" styleClass="stat-number" text="120" />
+                                    <Label fx:id="employeeCount" layoutX="60" layoutY="20" styleClass="stat-number" text="120" />
                                     <Label layoutX="60" layoutY="50" styleClass="stat-label" text="Total Employees" />
                                 </AnchorPane>
 
