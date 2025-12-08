@@ -157,4 +157,57 @@ public class SQLQuery {
         return count;
     }
 
+    public String exportCSV() {
+        StringBuilder result = new StringBuilder();
+        String query = "";
+        query = "SELECT userid, name, job_title FROM employee";
+        result.append("userid;name;job_title\n");
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                int resid = rs.getInt("userid");
+                String resname = rs.getString("name");
+                String resjobTitle = rs.getString("job_title");
+                result.append(String.format("%d;%s;%s\n", resid, resname, resjobTitle));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        query = "SELECT pcid, brand, version, userid FROM pc;";
+        result.append("\n\npcid;brand;version;userid\n");
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                int resid = rs.getInt("pcid");
+                String resbrand = rs.getString("brand");
+                String resversion = rs.getString("version");
+                String resuserid = rs.getString("userid");
+                result.append(String.format("%d;%s;%s;%s\n", resid, resbrand, resversion, resuserid));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        query = "SELECT peripheralid, brand, version, pcid FROM peripheral;";
+        result.append("\n\nperipheralid;brand;version;pcid\n");
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                int resid = rs.getInt("pcid");
+                String resbrand = rs.getString("brand");
+                String resversion = rs.getString("version");
+                String respcid = rs.getString("pcid");
+                result.append(String.format("%d;%s;%s;%s\n", resid, resbrand, resversion, respcid));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result.toString();
+    }
 }

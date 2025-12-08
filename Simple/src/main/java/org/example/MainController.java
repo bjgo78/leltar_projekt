@@ -113,8 +113,8 @@ public class MainController {
 
     @FXML
     void showDashboardView(ActionEvent event) {
-        tabPane.getSelectionModel().select(dashboardTab);
         setCounters();
+        tabPane.getSelectionModel().select(dashboardTab);
     }
 
     @FXML
@@ -316,6 +316,6 @@ public class MainController {
 
     @FXML
     void quickExportCSV(MouseEvent event) {
-
+        System.out.println(sqlQuery.exportCSV());
     }
 }
