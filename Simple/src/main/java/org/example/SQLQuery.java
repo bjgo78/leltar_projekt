@@ -197,7 +197,7 @@ public class SQLQuery {
              PreparedStatement stmt = conn.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
-                int resid = rs.getInt("pcid");
+                int resid = rs.getInt("peripheralid");
                 String resbrand = rs.getString("brand");
                 String resversion = rs.getString("version");
                 String respcid = rs.getString("pcid");

@@ -339,8 +339,19 @@ public class MainController {
                 file = new File(file.getAbsolutePath() + ".csv");
             }
 
-            try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8)) {
+            try (FileOutputStream fos = new FileOutputStream(file);
+                 OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
+                 BufferedWriter writer = new BufferedWriter(osw)) {
+
+                // Write UTF-8 BOM so Excel on Windows will detect UTF-8
+                fos.write(0xEF);
+                fos.write(0xBB);
+                fos.write(0xBF);
+                
                 writer.write(sqlQuery.exportCSV());
+                writer.flush();
+
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
