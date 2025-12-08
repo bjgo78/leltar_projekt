@@ -28,4 +28,16 @@ public class PC {
     public String getOwnerName() {
         return ownerName;
     }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
 }

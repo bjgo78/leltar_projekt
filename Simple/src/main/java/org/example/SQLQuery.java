@@ -210,4 +210,71 @@ public class SQLQuery {
 
         return result.toString();
     }
+
+    public void deleteEmployee(int id) {
+        String query = "DELETE FROM employee WHERE userid=?";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateEmployee(int id, String name, String jobTitle) {
+        String query = "UPDATE employee SET name=?, job_title=? WHERE userid=?";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, name);
+            stmt.setString(2, jobTitle);
+            stmt.setInt(3, id);
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deletePC(int id) {
+        String query = "DELETE FROM pc WHERE pcid=?";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updatePC(int id, String brand, String version, String ownerName) {
+        String ownerQuery = "SELECT userid FROM employee WHERE name=?";
+        int ownerId = -1;
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(ownerQuery)) {
+            stmt.setString(1, ownerName);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                ownerId = rs.getInt("userid");
+            } else {
+                return;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+
+        String query = "UPDATE pc SET brand=?, version=?, userid=? WHERE pcid=?";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, brand);
+            stmt.setString(2, version);
+            stmt.setInt(3, ownerId);
+            stmt.setInt(4, id);
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -32,6 +32,7 @@ public class App extends Application {
             mainScene = new Scene(mainLoader.load());
             primaryStage.setScene(mainScene);
             primaryStage.setTitle("Lentory");
+            primaryStage.setResizable(false);
             primaryStage.show();
         } else {
             System.exit(0);

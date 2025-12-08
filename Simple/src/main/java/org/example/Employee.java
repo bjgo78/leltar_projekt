@@ -22,4 +22,12 @@ public class Employee {
     public String getJobTitle() {
         return jobTitle;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
 }

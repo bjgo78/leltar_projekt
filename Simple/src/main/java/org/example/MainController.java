@@ -38,6 +38,11 @@ public class MainController {
     @FXML
     private TableColumn<Employee, String> colEmpJob;
 
+    @FXML private TableColumn<Employee, Void> colEmpEdit;
+    @FXML private TableColumn<Employee, Void> colEmpDelete;
+    @FXML private TableColumn<PC, Void> colPcEdit;
+    @FXML private TableColumn<PC, Void> colPcDelete;
+
     @FXML
     private TableView<PC> pcTable;
     @FXML
@@ -92,6 +97,11 @@ public class MainController {
         Tooltip.install(infoLabel1, tooltip1);
         Tooltip.install(infoLabel2, tooltip2);
 
+        addEmployeeEditButtonToTable();
+        addEmployeeDeleteButtonToTable();
+        addPcEditButtonToTable();
+        addPcDeleteButtonToTable();
+
         logoView.setImage(Assets.APP_LOGO);
         dashboardIcon.setImage(Assets.DASHBOARD);
         tabpaneEmployeesIcon.setImage(Assets.EMPLOYEES);
@@ -114,6 +124,171 @@ public class MainController {
         colPcVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
         colPcOwner.setCellValueFactory(new PropertyValueFactory<>("ownerName"));
         setCounters();
+    }
+
+    private void addPcEditButtonToTable() {
+        colPcEdit.setCellFactory(param -> new TableCell<>() {
+            private final Button editButton = new Button("Edit");
+
+            {
+                editButton.setOnAction(event -> {
+                    PC pc = getTableView().getItems().get(getIndex());
+                    showPcEditPopup(pc);
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(editButton);
+                }
+            }
+        });
+    }
+
+    private void addPcDeleteButtonToTable() {
+        colPcDelete.setCellFactory(param -> new TableCell<>() {
+            private final Button deleteButton = new Button("Delete");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    PC pc = getTableView().getItems().get(getIndex());
+                    sqlQuery.deletePC(pc.getId()); // SQLQuery-ben írjuk meg a delete metódust
+                    pcTable.getItems().remove(pc);
+                    setCounters();
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
+    }
+
+    private void showPcEditPopup(PC pc) {
+        Stage popupStage = new Stage();
+        popupStage.setTitle("Edit PC");
+
+        TextField brandField = new TextField(pc.getBrand());
+        TextField versionField = new TextField(pc.getVersion());
+        TextField ownerField = new TextField(pc.getOwnerName());
+
+        Button saveButton = new Button("Save");
+
+        saveButton.setOnAction(e -> {
+            String newBrand = brandField.getText().trim();
+            String newVersion = versionField.getText().trim();
+            String newOwner = ownerField.getText().trim();
+            if (!newBrand.isEmpty() && !newVersion.isEmpty() && !newOwner.isEmpty()) {
+                sqlQuery.updatePC(pc.getId(), newBrand, newVersion, newOwner); // SQLQuery-ben írjuk meg az update metódust
+                pc.setBrand(newBrand);
+                pc.setVersion(newVersion);
+                pc.setOwnerName(newOwner);
+                pcTable.refresh();
+                popupStage.close();
+            }
+        });
+
+        VBox layout = new VBox(10,
+                new Label("Brand:"), brandField,
+                new Label("Version:"), versionField,
+                new Label("Owner:"), ownerField,
+                saveButton
+        );
+        layout.setAlignment(Pos.CENTER);
+        layout.setPadding(new Insets(15));
+
+        Scene scene = new Scene(layout, 320, 300);
+        popupStage.setScene(scene);
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.showAndWait();
+    }
+
+    private void addEmployeeEditButtonToTable() {
+        colEmpEdit.setCellFactory(param -> new TableCell<>() {
+            private final Button editButton = new Button("Edit");
+
+            {
+                editButton.setOnAction(event -> {
+                    Employee emp = getTableView().getItems().get(getIndex());
+                    showEmployeeEditPopup(emp);
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(editButton);
+                }
+            }
+        });
+    }
+
+    private void addEmployeeDeleteButtonToTable() {
+        colEmpDelete.setCellFactory(param -> new TableCell<>() {
+            private final Button deleteButton = new Button("Delete");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    Employee emp = getTableView().getItems().get(getIndex());
+                    sqlQuery.deleteEmployee(emp.getId());
+                    employeeTable.getItems().remove(emp);
+                    setCounters();
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
+    }
+
+    private void showEmployeeEditPopup(Employee emp) {
+        Stage popupStage = new Stage();
+        popupStage.setTitle("Edit Employee");
+
+        TextField nameField = new TextField(emp.getName());
+        TextField jobField = new TextField(emp.getJobTitle());
+        Button saveButton = new Button("Save");
+
+        saveButton.setOnAction(e -> {
+            String newName = nameField.getText().trim();
+            String newJob = jobField.getText().trim();
+            if (!newName.isEmpty() && !newJob.isEmpty()) {
+                sqlQuery.updateEmployee(emp.getId(), newName, newJob);
+                emp.setName(newName);
+                emp.setJobTitle(newJob);
+                employeeTable.refresh();
+                popupStage.close();
+            }
+        });
+
+        VBox layout = new VBox(10, new Label("Name:"), nameField, new Label("Job Title:"), jobField, saveButton);
+        layout.setAlignment(Pos.CENTER);
+        layout.setPadding(new Insets(15));
+
+        Scene scene = new Scene(layout, 300, 250);
+        popupStage.setScene(scene);
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.showAndWait();
     }
 
     @FXML
