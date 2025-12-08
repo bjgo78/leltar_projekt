@@ -4,50 +4,37 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" styleClass="root" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" styleClass="root" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainController">
     <children>
 
         <!-- Lentory Header -->
         <AnchorPane prefHeight="70" prefWidth="950">
             <children>
-                <ImageView fx:id="logoView"
-                           layoutX="20" layoutY="15"
-                           fitWidth="45" fitHeight="45"
-                           opacity="0.95"
-                           preserveRatio="true"/>
+                <ImageView fx:id="logoView" fitHeight="45" fitWidth="45" layoutX="20" layoutY="15" opacity="0.95" preserveRatio="true" />
 
-                <Label text="Lentory"
-                       layoutX="70" layoutY="20"
-                       styleClass="header-title"/>
+                <Label layoutX="70" layoutY="20" styleClass="header-title" text="Lentory" />
             </children>
         </AnchorPane>
 
-        <TabPane fx:id="tabPane"
-                 side="LEFT"
-                 prefHeight="550.0"
-                 prefWidth="950.0"
-                 tabClosingPolicy="UNAVAILABLE"
-                 AnchorPane.bottomAnchor="0.0"
-                 AnchorPane.leftAnchor="0.0"
-                 AnchorPane.rightAnchor="0.0"
-                 AnchorPane.topAnchor="70.0">
+        <TabPane fx:id="tabPane" prefHeight="550.0" prefWidth="950.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
             <tabs>
 
                 <Tab fx:id="dashboardTab">
                     <graphic>
                         <HBox alignment="CENTER_LEFT" styleClass="tab-graphic">
-                            <ImageView fx:id="dashboardIcon" fitWidth="30" fitHeight="30"/>
-                            <Label text="Dashboard" styleClass="tab-label"/>
+                            <ImageView fx:id="dashboardIcon" fitHeight="30" fitWidth="30" />
+                            <Label styleClass="tab-label" text="Dashboard" />
                         </HBox>
                     </graphic>
 
@@ -55,62 +42,70 @@
                         <AnchorPane styleClass="tab-content-area">
 
                             <!-- Üdvözlés -->
-                            <Label text="Welcome back, admin!" layoutX="20" layoutY="20" styleClass="welcome-label">
+                            <Label layoutX="20" layoutY="20" styleClass="welcome-label" text="Welcome back, admin!">
                                 <font>
-                                    <Font name="System Bold" size="24"/>
+                                    <Font name="System Bold" size="24" />
                                 </font>
                             </Label>
 
                             <!-- Statisztikák csempék -->
                             <AnchorPane layoutX="20" layoutY="70">
-                                <AnchorPane prefWidth="200" prefHeight="100" styleClass="stat-tile" layoutX="0" layoutY="0">
-                                    <ImageView fx:id="employeeIcon" fitWidth="40" fitHeight="40" layoutX="10" layoutY="30"/>
-                                    <Label text="120" layoutX="60" layoutY="20" styleClass="stat-number"/>
-                                    <Label text="Total Employees" layoutX="60" layoutY="50" styleClass="stat-label"/>
+                                <AnchorPane layoutX="0" layoutY="0" prefHeight="100" prefWidth="200" styleClass="stat-tile">
+                                    <ImageView fx:id="employeeIcon" fitHeight="40" fitWidth="40" layoutX="10" layoutY="30" />
+                                    <Label layoutX="60" layoutY="20" styleClass="stat-number" text="120" />
+                                    <Label layoutX="60" layoutY="50" styleClass="stat-label" text="Total Employees" />
                                 </AnchorPane>
 
-                                <AnchorPane prefWidth="200" prefHeight="100" styleClass="stat-tile" layoutX="220" layoutY="0">
-                                    <ImageView fx:id="computerIcon" fitWidth="40" fitHeight="40" layoutX="10" layoutY="30"/>
-                                    <Label text="35" layoutX="60" layoutY="20" styleClass="stat-number"/>
-                                    <Label text="Total Computers" layoutX="60" layoutY="50" styleClass="stat-label"/>
+                                <AnchorPane layoutX="220" layoutY="0" prefHeight="100" prefWidth="200" styleClass="stat-tile">
+                                    <ImageView fx:id="computerIcon" fitHeight="40" fitWidth="40" layoutX="10" layoutY="30" />
+                                    <Label layoutX="60" layoutY="20" styleClass="stat-number" text="35" />
+                                    <Label layoutX="60" layoutY="50" styleClass="stat-label" text="Total Computers" />
                                 </AnchorPane>
 
-                                <AnchorPane prefWidth="200" prefHeight="100" styleClass="stat-tile" layoutX="440" layoutY="0">
-                                    <ImageView fx:id="peripheralIcon" fitWidth="40" fitHeight="40" layoutX="10" layoutY="30"/>
-                                    <Label text="50" layoutX="60" layoutY="20" styleClass="stat-number"/>
-                                    <Label text="Total Peripherals" layoutX="60" layoutY="50" styleClass="stat-label"/>
+                                <AnchorPane layoutX="440" layoutY="0" prefHeight="100" prefWidth="200" styleClass="stat-tile">
+                                    <ImageView fx:id="peripheralIcon" fitHeight="40" fitWidth="40" layoutX="10" layoutY="30" />
+                                    <Label layoutX="60" layoutY="20" styleClass="stat-number" text="50" />
+                                    <Label layoutX="60" layoutY="50" styleClass="stat-label" text="Total Peripherals" />
                                 </AnchorPane>
                             </AnchorPane>
 
                             <!-- Quick Actions -->
-                            <Label text="Quick Actions:" layoutX="20" layoutY="200" styleClass="subheader-label"/>
+                            <Label layoutX="20" layoutY="200" styleClass="subheader-label" text="Quick Actions:" />
 
                             <!-- Quick Actions Grid -->
-                            <GridPane layoutX="20" layoutY="240" hgap="25" vgap="20">
+                            <GridPane hgap="25" layoutX="20" layoutY="240" vgap="20">
 
-                                <AnchorPane prefWidth="250" prefHeight="90" styleClass="action-tile" GridPane.rowIndex="0" GridPane.columnIndex="0">
-                                    <ImageView fx:id="actionAddEmployeeIcon" fitWidth="30" fitHeight="30" layoutX="10" layoutY="30"/>
-                                    <Label text="Add Employee" layoutX="55" layoutY="15" styleClass="action-title"/>
-                                    <Label text="Register a new team member" layoutX="55" layoutY="40" styleClass="action-desc"/>
+                                <AnchorPane onMouseClicked="#quickAddEmployee" prefHeight="90" prefWidth="250" styleClass="action-tile" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <ImageView fx:id="actionAddEmployeeIcon" fitHeight="30" fitWidth="30" layoutX="10" layoutY="30" />
+                                    <Label layoutX="55" layoutY="15" styleClass="action-title" text="Add Employee" />
+                                    <Label layoutX="55" layoutY="40" styleClass="action-desc" text="Register a new team member" />
                                 </AnchorPane>
 
-                                <AnchorPane prefWidth="250" prefHeight="90" styleClass="action-tile" GridPane.rowIndex="0" GridPane.columnIndex="1">
-                                    <ImageView fx:id="actionAddComputerIcon" fitWidth="30" fitHeight="30" layoutX="10" layoutY="30"/>
-                                    <Label text="Add Computer" layoutX="55" layoutY="15" styleClass="action-title"/>
-                                    <Label text="Register a new computer device" layoutX="55" layoutY="40" styleClass="action-desc"/>
+                                <AnchorPane onMouseClicked="#quickAddComputer" prefHeight="90" prefWidth="250" styleClass="action-tile" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <ImageView fx:id="actionAddComputerIcon" fitHeight="30" fitWidth="30" layoutX="10" layoutY="30" />
+                                    <Label layoutX="55" layoutY="15" styleClass="action-title" text="Add Computer" />
+                                    <Label layoutX="55" layoutY="40" styleClass="action-desc" text="Register a new computer device" />
                                 </AnchorPane>
 
-                                <AnchorPane prefWidth="250" prefHeight="90" styleClass="action-tile" GridPane.rowIndex="1" GridPane.columnIndex="0">
-                                    <ImageView fx:id="actionDownloadIcon" fitWidth="30" fitHeight="30" layoutX="10" layoutY="30"/>
-                                    <Label text="Export CSV" layoutX="55" layoutY="15" styleClass="action-title"/>
-                                    <Label text="Export data to spreadsheet" layoutX="55" layoutY="40" styleClass="action-desc"/>
+                                <AnchorPane prefHeight="90" prefWidth="250" styleClass="action-tile" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                    <ImageView fx:id="actionDownloadIcon" fitHeight="30" fitWidth="30" layoutX="10" layoutY="30" />
+                                    <Label layoutX="55" layoutY="15" styleClass="action-title" text="Export CSV" />
+                                    <Label layoutX="55" layoutY="40" styleClass="action-desc" text="Export data to spreadsheet" />
                                 </AnchorPane>
 
-                                <AnchorPane prefWidth="250" prefHeight="90" styleClass="action-tile" GridPane.rowIndex="1" GridPane.columnIndex="1">
-                                    <ImageView fx:id="actionAssignDeviceIcon" fitWidth="30" fitHeight="30" layoutX="10" layoutY="30"/>
-                                    <Label text="Assign Devices" layoutX="55" layoutY="15" styleClass="action-title"/>
-                                    <Label text="Link devices to employees" layoutX="55" layoutY="40" styleClass="action-desc"/>
+                                <AnchorPane prefHeight="90" prefWidth="250" styleClass="action-tile" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <ImageView fx:id="actionAssignDeviceIcon" fitHeight="30" fitWidth="30" layoutX="10" layoutY="30" />
+                                    <Label layoutX="55" layoutY="15" styleClass="action-title" text="Assign Devices" />
+                                    <Label layoutX="55" layoutY="40" styleClass="action-desc" text="Link devices to employees" />
                                 </AnchorPane>
+                        <columnConstraints>
+                           <ColumnConstraints />
+                           <ColumnConstraints />
+                        </columnConstraints>
+                        <rowConstraints>
+                           <RowConstraints />
+                           <RowConstraints />
+                        </rowConstraints>
                             </GridPane>
                         </AnchorPane>
                     </content>
@@ -119,8 +114,8 @@
                 <Tab fx:id="employeesTab">
                     <graphic>
                         <HBox alignment="CENTER_LEFT" styleClass="tab-graphic">
-                            <ImageView fx:id="tabpaneEmployeesIcon" fitWidth="30" fitHeight="30"/>
-                            <Label text="Employees" styleClass="tab-label"/>
+                            <ImageView fx:id="tabpaneEmployeesIcon" fitHeight="30" fitWidth="30" />
+                            <Label styleClass="tab-label" text="Employees" />
                         </HBox>
                     </graphic>
 
@@ -165,8 +160,8 @@
                 <Tab fx:id="computersTab">
                     <graphic>
                         <HBox alignment="CENTER_LEFT" styleClass="tab-graphic">
-                            <ImageView fx:id="tabpaneComputerIcon" fitWidth="30" fitHeight="30"/>
-                            <Label text="Computers" styleClass="tab-label"/>
+                            <ImageView fx:id="tabpaneComputerIcon" fitHeight="30" fitWidth="30" />
+                            <Label styleClass="tab-label" text="Computers" />
                         </HBox>
                     </graphic>
 
@@ -187,8 +182,8 @@
                                 </Label>
 
                                 <TextField fx:id="pcIDfield" layoutX="25.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Search by PC ID" />
-                                <TextField fx:id="brandfield" layoutX="173.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Search by Brand"/>
-                                <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Search by Version"/>
+                                <TextField fx:id="brandfield" layoutX="173.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Search by Brand" />
+                                <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Search by Version" />
                                 <TextField fx:id="ownerfield" layoutX="472.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Search by Owner" />
 
                                 <Button layoutX="633.0" layoutY="30.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" prefHeight="40.0" prefWidth="110.0" text="Search">

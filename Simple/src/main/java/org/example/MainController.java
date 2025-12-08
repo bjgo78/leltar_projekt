@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -131,7 +132,7 @@ public class MainController {
     }
 
     @FXML
-    void employeeAddButton(ActionEvent event) {
+    void employeeAddButton() {
         Stage popupStage = new Stage();
         popupStage.setTitle("Add Employee");
 
@@ -176,7 +177,7 @@ public class MainController {
     }
 
     @FXML
-    void pcAdd(ActionEvent event) {
+    void pcAdd() {
         Stage popupStage = new Stage();
         popupStage.setTitle("Add PC");
 
@@ -229,5 +230,13 @@ public class MainController {
         popupStage.setScene(scene);
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.showAndWait();
+    }
+    @FXML
+    void quickAddEmployee(MouseEvent event) {
+        employeeAddButton();
+    }
+    @FXML
+    void quickAddComputer(MouseEvent event) {
+        pcAdd();
     }
 }
