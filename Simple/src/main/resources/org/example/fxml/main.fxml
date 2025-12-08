@@ -52,19 +52,19 @@
                             <AnchorPane layoutX="20" layoutY="70">
                                 <AnchorPane layoutX="0" layoutY="0" prefHeight="100" prefWidth="200" styleClass="stat-tile">
                                     <ImageView fx:id="employeeIcon" fitHeight="40" fitWidth="40" layoutX="10" layoutY="30" />
-                                    <Label fx:id="employeeCount" layoutX="60" layoutY="20" styleClass="stat-number" text="120" />
+                                    <Label fx:id="employeeCount" layoutX="60" layoutY="20" styleClass="stat-number" text="0" />
                                     <Label layoutX="60" layoutY="50" styleClass="stat-label" text="Total Employees" />
                                 </AnchorPane>
 
                                 <AnchorPane layoutX="220" layoutY="0" prefHeight="100" prefWidth="200" styleClass="stat-tile">
                                     <ImageView fx:id="computerIcon" fitHeight="40" fitWidth="40" layoutX="10" layoutY="30" />
-                                    <Label fx:id="pcCount" layoutX="60" layoutY="20" styleClass="stat-number" text="35" />
+                                    <Label fx:id="pcCount" layoutX="60" layoutY="20" styleClass="stat-number" text="0" />
                                     <Label layoutX="60" layoutY="50" styleClass="stat-label" text="Total Computers" />
                                 </AnchorPane>
 
                                 <AnchorPane layoutX="440" layoutY="0" prefHeight="100" prefWidth="200" styleClass="stat-tile">
                                     <ImageView fx:id="peripheralIcon" fitHeight="40" fitWidth="40" layoutX="10" layoutY="30" />
-                                    <Label fx:id="peripheralCount" layoutX="60" layoutY="20" styleClass="stat-number" text="50" />
+                                    <Label fx:id="peripheralCount" layoutX="60" layoutY="20" styleClass="stat-number" text="0" />
                                     <Label layoutX="60" layoutY="50" styleClass="stat-label" text="Total Peripherals" />
                                 </AnchorPane>
                             </AnchorPane>
@@ -95,8 +95,8 @@
 
                                 <AnchorPane onMouseClicked="#quickAddDevice" prefHeight="90" prefWidth="250" styleClass="action-tile" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                     <ImageView fx:id="actionAssignDeviceIcon" fitHeight="30" fitWidth="30" layoutX="10" layoutY="30" />
-                                    <Label layoutX="55" layoutY="15" styleClass="action-title" text="Add Device" />
-                                    <Label layoutX="55" layoutY="40" styleClass="action-desc" text="Add device to computer" />
+                                    <Label layoutX="55" layoutY="15" styleClass="action-title" text="Add Peripheral" />
+                                    <Label layoutX="55" layoutY="40" styleClass="action-desc" text="Add peripheral to computer" />
                                 </AnchorPane>
                         <columnConstraints>
                            <ColumnConstraints />

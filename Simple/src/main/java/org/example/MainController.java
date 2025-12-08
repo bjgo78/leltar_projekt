@@ -108,14 +108,13 @@ public class MainController {
         colPcBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
         colPcVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
         colPcOwner.setCellValueFactory(new PropertyValueFactory<>("ownerName"));
-        employeeCount.setText(String.valueOf(sqlQuery.getEmployeeCount()));
-        pcCount.setText(String.valueOf(sqlQuery.getPCCount()));
-        peripheralCount.setText(String.valueOf(sqlQuery.getPeripheralCount()));
+        setCounters();
     }
 
     @FXML
     void showDashboardView(ActionEvent event) {
         tabPane.getSelectionModel().select(dashboardTab);
+        setCounters();
     }
 
     @FXML
@@ -128,6 +127,11 @@ public class MainController {
         tabPane.getSelectionModel().select(computersTab);
     }
 
+    void setCounters(){
+        employeeCount.setText(String.valueOf(sqlQuery.getEmployeeCount()));
+        pcCount.setText(String.valueOf(sqlQuery.getPCCount()));
+        peripheralCount.setText(String.valueOf(sqlQuery.getPeripheralCount()));
+    }
     @FXML
     void PCSearchButton() {
         ObservableList<PC> data = sqlQuery.searchPc(pcIDfield.getText(), brandfield.getText(), versionfield.getText(), ownerfield.getText());
