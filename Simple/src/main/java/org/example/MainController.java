@@ -231,6 +231,62 @@ public class MainController {
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.showAndWait();
     }
+
+    void peripheralAdd() {
+        Stage popupStage = new Stage();
+        popupStage.setTitle("Add Peripheral");
+
+        Label brandLabel = new Label("Brand:");
+        TextField brandField = new TextField();
+
+        Label versionLabel = new Label("Version:");
+        TextField versionField = new TextField();
+
+        Label pcIDLabel = new Label("PC ID:");
+        TextField pcIDField = new TextField();
+
+        Button addButton = new Button("Add");
+        addButton.setMaxWidth(Double.MAX_VALUE);
+
+        Runnable addPeripheral = () -> {
+            String brand = brandField.getText().trim();
+            String version = versionField.getText().trim();
+            String pcid = pcIDField.getText().trim();
+
+            if (brand.isEmpty() || version.isEmpty() || pcid.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setHeaderText(null);
+                alert.setContentText("Please fill in the fields");
+                alert.showAndWait();
+            } else {
+                sqlQuery.addPeripheral(brand, version, pcid);
+                popupStage.close();
+            }
+        };
+
+        addButton.setOnAction(e -> addPeripheral.run());
+        brandField.setOnAction(e -> addPeripheral.run());
+        versionField.setOnAction(e -> addPeripheral.run());
+        pcIDField.setOnAction(e -> addPeripheral.run());
+
+        VBox layout = new VBox(10);
+        layout.setPadding(new Insets(15));
+        layout.getStyleClass().add("pop-up-root");
+        layout.getChildren().addAll(brandLabel, brandField, versionLabel, versionField, pcIDLabel, pcIDField, new Label(""), addButton);
+        layout.setAlignment(Pos.CENTER);
+
+        Scene scene = new Scene(layout, 320, 400);
+        try {
+            scene.getStylesheets().add(getClass().getResource("styles/style.css").toExternalForm());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        popupStage.setScene(scene);
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.showAndWait();
+    }
+
     @FXML
     void quickAddEmployee(MouseEvent event) {
         employeeAddButton();
@@ -242,7 +298,7 @@ public class MainController {
 
     @FXML
     void quickAddDevice(MouseEvent event) {
-
+        peripheralAdd();
     }
 
     @FXML
