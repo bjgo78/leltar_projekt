@@ -96,4 +96,16 @@ public class SQLQuery {
             }
         }
     }
+    public void addPeripheral(String brand, String version, String pcid) {
+            String query = "INSERT INTO peripheral (brand, version, pcid) VALUES ('" + brand + "', '" + version + "', '" + pcid + "')";
+            try (Connection conn = DriverManager.getConnection(url, user, password);
+                 PreparedStatement stmt = conn.prepareStatement(query)) {
+
+                stmt.executeUpdate();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    }
+
 }

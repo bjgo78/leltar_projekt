@@ -87,16 +87,16 @@
                                     <Label layoutX="55" layoutY="40" styleClass="action-desc" text="Register a new computer device" />
                                 </AnchorPane>
 
-                                <AnchorPane prefHeight="90" prefWidth="250" styleClass="action-tile" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <AnchorPane onMouseClicked="#quickExportCSV" prefHeight="90" prefWidth="250" styleClass="action-tile" GridPane.columnIndex="0" GridPane.rowIndex="1">
                                     <ImageView fx:id="actionDownloadIcon" fitHeight="30" fitWidth="30" layoutX="10" layoutY="30" />
                                     <Label layoutX="55" layoutY="15" styleClass="action-title" text="Export CSV" />
                                     <Label layoutX="55" layoutY="40" styleClass="action-desc" text="Export data to spreadsheet" />
                                 </AnchorPane>
 
-                                <AnchorPane prefHeight="90" prefWidth="250" styleClass="action-tile" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <AnchorPane onMouseClicked="#quickAddDevice" prefHeight="90" prefWidth="250" styleClass="action-tile" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                     <ImageView fx:id="actionAssignDeviceIcon" fitHeight="30" fitWidth="30" layoutX="10" layoutY="30" />
-                                    <Label layoutX="55" layoutY="15" styleClass="action-title" text="Assign Devices" />
-                                    <Label layoutX="55" layoutY="40" styleClass="action-desc" text="Link devices to employees" />
+                                    <Label layoutX="55" layoutY="15" styleClass="action-title" text="Add Device" />
+                                    <Label layoutX="55" layoutY="40" styleClass="action-desc" text="Add device to computer" />
                                 </AnchorPane>
                         <columnConstraints>
                            <ColumnConstraints />
@@ -186,7 +186,7 @@
                                 <TextField fx:id="versionfield" layoutX="320.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Search by Version" />
                                 <TextField fx:id="ownerfield" layoutX="472.0" layoutY="35.0" prefHeight="35.0" prefWidth="130.0" promptText="Search by Owner" />
 
-                                <Button layoutX="633.0" layoutY="30.0" mnemonicParsing="false" onAction="#PeripherialSearchButton" prefHeight="40.0" prefWidth="110.0" text="Search">
+                                <Button layoutX="633.0" layoutY="30.0" mnemonicParsing="false" onAction="#PCSearchButton" prefHeight="40.0" prefWidth="110.0" text="Search">
                                     <font><Font name="System Bold" size="14.0" /></font>
                                 </Button>
                                 <Button layoutX="573.0" layoutY="105.0" mnemonicParsing="false" onAction="#pcAdd" prefHeight="40.0" prefWidth="170.0" styleClass="secondary-button" text="+ Add PC">

@@ -120,7 +120,7 @@ public class MainController {
     }
 
     @FXML
-    void PeripherialSearchButton() {
+    void PCSearchButton() {
         ObservableList<PC> data = sqlQuery.searchPc(pcIDfield.getText(), brandfield.getText(), versionfield.getText(), ownerfield.getText());
         pcTable.setItems(data);
     }
@@ -193,7 +193,7 @@ public class MainController {
         Button addButton = new Button("Add");
         addButton.setMaxWidth(Double.MAX_VALUE);
 
-        Runnable addPeripheral = () -> {
+        Runnable addPC = () -> {
             String brand = brandField.getText().trim();
             String version = versionField.getText().trim();
             String owner = ownerField.getText().trim();
@@ -209,10 +209,10 @@ public class MainController {
             }
         };
 
-        addButton.setOnAction(e -> addPeripheral.run());
-        brandField.setOnAction(e -> addPeripheral.run());
-        versionField.setOnAction(e -> addPeripheral.run());
-        ownerField.setOnAction(e -> addPeripheral.run());
+        addButton.setOnAction(e -> addPC.run());
+        brandField.setOnAction(e -> addPC.run());
+        versionField.setOnAction(e -> addPC.run());
+        ownerField.setOnAction(e -> addPC.run());
 
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(15));
@@ -238,5 +238,15 @@ public class MainController {
     @FXML
     void quickAddComputer(MouseEvent event) {
         pcAdd();
+    }
+
+    @FXML
+    void quickAddDevice(MouseEvent event) {
+
+    }
+
+    @FXML
+    void quickExportCSV(MouseEvent event) {
+
     }
 }
