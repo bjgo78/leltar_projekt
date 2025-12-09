@@ -391,7 +391,7 @@ public class MainController {
             String version = versionField.getText().trim();
             String owner = ownerField.getText().trim();
 
-            if (brand.isEmpty() || version.isEmpty() || owner.isEmpty()) {
+            if (brand.isEmpty() || version.isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setHeaderText(null);
                 alert.setContentText("Please fill in the fields");

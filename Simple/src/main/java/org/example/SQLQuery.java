@@ -2,10 +2,8 @@ package org.example;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
+import java.sql.*;
 
 public class SQLQuery {
     String url = "jdbc:mariadb://localhost:3306/leltar";
@@ -48,7 +46,7 @@ public class SQLQuery {
 
     public ObservableList<PC> searchPc(String pcId, String brand, String version, String owner) {
         ObservableList<PC> list = FXCollections.observableArrayList();
-        String query = "SELECT pc.pcid, pc.brand, pc.version, employee.name FROM pc INNER JOIN employee ON pc.userid = employee.userid WHERE pc.pcid LIKE '%" + pcId + "%' AND pc.brand LIKE '%" + brand + "%' AND pc.version LIKE '%" + version + "%' AND employee.name LIKE '%" + owner + "%'";
+        String query = "SELECT pc.pcid, pc.brand, pc.version, COALESCE(employee.name, '') AS name FROM pc LEFT JOIN employee ON pc.userid = employee.userid WHERE pc.pcid LIKE '%" + pcId + "%' AND pc.brand LIKE '%" + brand + "%' AND pc.version LIKE '%" + version + "%' AND COALESCE(employee.name, '') LIKE '%" + owner + "%'";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement(query);
@@ -70,30 +68,43 @@ public class SQLQuery {
     }
 
     public void addPC(String brand, String version, String owner) {
-        String ownerQuery = "SELECT userid FROM employee WHERE name ='" + owner + "'";
-        String resultID = "";
+        Integer userId = null;
+        if (owner != null && !owner.trim().isEmpty()) {
+            String ownerQuery = "SELECT userid FROM employee WHERE name = ?";
 
-        try (Connection conn = DriverManager.getConnection(url, user, password);
-             PreparedStatement stmt = conn.prepareStatement(ownerQuery);
-             ResultSet rs = stmt.executeQuery()) {
-            while (rs.next()) {
-                int resid = rs.getInt("userid");
-                resultID = Integer.toString(resid);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        if (!resultID.isEmpty()) {
-            String query = "INSERT INTO pc (brand, version, userid) VALUES ('" + brand + "', '" + version + "', '" + resultID + "')";
             try (Connection conn = DriverManager.getConnection(url, user, password);
-                 PreparedStatement stmt = conn.prepareStatement(query)) {
+                 PreparedStatement stmt = conn.prepareStatement(ownerQuery)) {
 
-                stmt.executeUpdate();
+                stmt.setString(1, owner);
+                ResultSet rs = stmt.executeQuery();
+
+                if (rs.next()) {
+                    userId = rs.getInt("userid");
+                }
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+
+        String insertQuery = "INSERT INTO pc (brand, version, userid) VALUES (?, ?, ?)";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(insertQuery)) {
+
+            stmt.setString(1, brand);
+            stmt.setString(2, version);
+
+            if (userId != null) {
+                stmt.setInt(3, userId);
+            } else {
+                stmt.setNull(3, Types.INTEGER);
+            }
+
+            stmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     public void addPeripheral(String brand, String version, String pcid) {
