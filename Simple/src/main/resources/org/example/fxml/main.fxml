@@ -146,8 +146,8 @@
                                 <TableView fx:id="employeeTable" layoutX="31.0" layoutY="132.0" prefHeight="380.0" prefWidth="520.0">
                                     <columns>
                                         <TableColumn fx:id="colEmpId" prefWidth="30.0" text="ID" />
-                                        <TableColumn fx:id="colEmpName" prefWidth="175.0" text="Name" />
-                                        <TableColumn fx:id="colEmpJob" prefWidth="175.0" text="Job Title" />
+                                        <TableColumn fx:id="colEmpName" prefWidth="172.0" text="Name" />
+                                        <TableColumn fx:id="colEmpJob" prefWidth="172.0" text="Job Title" />
                                         <TableColumn fx:id="colEmpEdit" prefWidth="60" text="Edit" />
                                         <TableColumn fx:id="colEmpDelete" prefWidth="80" text="Delete" />
                                     </columns>
@@ -198,8 +198,8 @@
                                 <TableView fx:id="pcTable" layoutX="37.0" layoutY="105.0" prefHeight="400.0" prefWidth="520.0">
                                     <columns>
                                         <TableColumn fx:id="colPcId" prefWidth="30.0" text="ID" />
-                                        <TableColumn fx:id="colPcBrand" prefWidth="90.0" text="Brand" />
-                                        <TableColumn fx:id="colPcVersion" prefWidth="90.0" text="Version" />
+                                        <TableColumn fx:id="colPcBrand" prefWidth="87.0" text="Brand" />
+                                        <TableColumn fx:id="colPcVersion" prefWidth="87.0" text="Version" />
                                         <TableColumn fx:id="colPcOwner" prefWidth="170.0" text="Owner" />
                                         <TableColumn fx:id="colPcEdit" prefWidth="60" text="Edit" />
                                         <TableColumn fx:id="colPcDelete" prefWidth="80" text="Delete" />

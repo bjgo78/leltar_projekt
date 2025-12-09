@@ -275,7 +275,7 @@ public class SQLQuery {
         }
     }
 
-    public void updatePC(int id, String brand, String version, String ownerName) {
+    public boolean updatePC(int id, String brand, String version, String ownerName) {
         Integer ownerId = null;
 
         if (ownerName != null && !ownerName.trim().isEmpty()) {
@@ -283,18 +283,18 @@ public class SQLQuery {
             try (Connection conn = DriverManager.getConnection(url, user, password);
                  PreparedStatement stmt = conn.prepareStatement(ownerQuery)) {
 
-                stmt.setString(1, ownerName);
+                stmt.setString(1, ownerName.trim());
                 ResultSet rs = stmt.executeQuery();
 
                 if (rs.next()) {
                     ownerId = rs.getInt("userid");
                 } else {
-                    ownerId = null;
+                    return false;
                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
-                return;
+                return false;
             }
         }
 
@@ -316,9 +316,11 @@ public class SQLQuery {
             stmt.setInt(4, id);
             stmt.executeUpdate();
 
+            return true;
+
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
-
 }

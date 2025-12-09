@@ -188,11 +188,30 @@ public class MainController {
             String newBrand = brandField.getText().trim();
             String newVersion = versionField.getText().trim();
             String newOwner = ownerField.getText().trim();
-            if (!newBrand.isEmpty() && !newVersion.isEmpty() && !newOwner.isEmpty()) {
-                sqlQuery.updatePC(pc.getId(), newBrand, newVersion, newOwner); // SQLQuery-ben írjuk meg az update metódust
+            if (!newBrand.isEmpty() && !newVersion.isEmpty()) {
+                boolean success = sqlQuery.updatePC(pc.getId(), newBrand, newVersion, newOwner);
+                if (!success) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(null);
+                    alert.setContentText("Invalid owner name (no such employee).");
+                    DialogPane dialogPane = alert.getDialogPane();
+                    dialogPane.getStylesheets().add(
+                            getClass().getResource("styles/style.css").toExternalForm()
+                    );
+                    alert.showAndWait();
+                    return;
+                }
+
+                sqlQuery.updatePC(pc.getId(), newBrand, newVersion, newOwner);
                 pc.setBrand(newBrand);
                 pc.setVersion(newVersion);
-                pc.setOwnerName(newOwner);
+
+                if (newOwner.isEmpty()) {
+                    pc.setOwnerName(null);
+                } else {
+                    pc.setOwnerName(newOwner);
+                }
+
                 pcTable.refresh();
                 popupStage.close();
             }
@@ -207,7 +226,12 @@ public class MainController {
         layout.setAlignment(Pos.CENTER);
         layout.setPadding(new Insets(15));
 
-        Scene scene = new Scene(layout, 320, 300);
+        Scene scene = new Scene(layout, 320, 400);
+        try {
+            scene.getStylesheets().add(getClass().getResource("styles/style.css").toExternalForm());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         popupStage.setScene(scene);
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.showAndWait();
@@ -285,7 +309,13 @@ public class MainController {
         layout.setAlignment(Pos.CENTER);
         layout.setPadding(new Insets(15));
 
-        Scene scene = new Scene(layout, 300, 250);
+        Scene scene = new Scene(layout, 320, 280);
+        try {
+            scene.getStylesheets().add(getClass().getResource("styles/style.css").toExternalForm());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         popupStage.setScene(scene);
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.showAndWait();
