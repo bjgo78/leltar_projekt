@@ -377,6 +377,8 @@ public class MainController {
                 alert.showAndWait();
             } else {
                 sqlQuery.addEmployee(name, job);
+                setCounters();
+                employeeTable.setItems(sqlQuery.searchEmployee("", "", ""));
                 popupStage.close();
             }
         });
@@ -428,6 +430,8 @@ public class MainController {
                 alert.showAndWait();
             } else {
                 sqlQuery.addPC(brand, version, owner);
+                setCounters();
+                pcTable.setItems(sqlQuery.searchPc("", "", "", ""));
                 popupStage.close();
             }
         };
