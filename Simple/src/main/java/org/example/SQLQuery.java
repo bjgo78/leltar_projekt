@@ -223,11 +223,19 @@ public class SQLQuery {
     }
 
     public void deleteEmployee(int id) {
-        String query = "DELETE FROM employee WHERE userid=?";
-        try (Connection conn = DriverManager.getConnection(url, user, password);
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
+        String nullifyPC = "UPDATE pc SET userid=NULL WHERE userid=?";
+        String deleteEmployee = "DELETE FROM employee WHERE userid=?";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            try (PreparedStatement stmt = conn.prepareStatement(nullifyPC)) {
+                stmt.setInt(1, id);
+                stmt.executeUpdate();
+            }
+            try (PreparedStatement stmt = conn.prepareStatement(deleteEmployee)) {
+                stmt.setInt(1, id);
+                stmt.executeUpdate();
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -247,42 +255,67 @@ public class SQLQuery {
     }
 
     public void deletePC(int id) {
-        String query = "DELETE FROM pc WHERE pcid=?";
-        try (Connection conn = DriverManager.getConnection(url, user, password);
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
+        String nullifyPeripheral = "UPDATE peripheral SET pcid=NULL WHERE pcid=?";
+        String deletePC = "DELETE FROM pc WHERE pcid=?";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+
+            try (PreparedStatement stmt = conn.prepareStatement(nullifyPeripheral)) {
+                stmt.setInt(1, id);
+                stmt.executeUpdate();
+            }
+
+            try (PreparedStatement stmt = conn.prepareStatement(deletePC)) {
+                stmt.setInt(1, id);
+                stmt.executeUpdate();
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void updatePC(int id, String brand, String version, String ownerName) {
-        String ownerQuery = "SELECT userid FROM employee WHERE name=?";
-        int ownerId = -1;
+        Integer ownerId = null;
 
-        try (Connection conn = DriverManager.getConnection(url, user, password);
-             PreparedStatement stmt = conn.prepareStatement(ownerQuery)) {
-            stmt.setString(1, ownerName);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                ownerId = rs.getInt("userid");
-            } else {
+        if (ownerName != null && !ownerName.trim().isEmpty()) {
+            String ownerQuery = "SELECT userid FROM employee WHERE name=?";
+            try (Connection conn = DriverManager.getConnection(url, user, password);
+                 PreparedStatement stmt = conn.prepareStatement(ownerQuery)) {
+
+                stmt.setString(1, ownerName);
+                ResultSet rs = stmt.executeQuery();
+
+                if (rs.next()) {
+                    ownerId = rs.getInt("userid");
+                } else {
+                    ownerId = null;
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
                 return;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return;
         }
 
+
         String query = "UPDATE pc SET brand=?, version=?, userid=? WHERE pcid=?";
+
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement(query)) {
+
             stmt.setString(1, brand);
             stmt.setString(2, version);
-            stmt.setInt(3, ownerId);
+
+            if (ownerId != null) {
+                stmt.setInt(3, ownerId);
+            } else {
+                stmt.setNull(3, Types.INTEGER);
+            }
+
             stmt.setInt(4, id);
             stmt.executeUpdate();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
